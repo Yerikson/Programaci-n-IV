@@ -4,7 +4,7 @@ package semana.pkg3;
 public class Ejercicio4 {
     public static void main(String[] args) {
         long N = 9;
-        long P = 12;
+        long P = 10;
         long R = Potencia(N,P);
         System.out.println(R);
     }

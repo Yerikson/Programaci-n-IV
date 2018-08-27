@@ -4,7 +4,7 @@ package semana.pkg3;
 public class Ejercicio5 {
     
     public static void main(String[] args) {
-        int Digito = 991;
+        int Digito = 997;
         int R = 0;
 
         for (int i = 1; i <= Digito; i++) {

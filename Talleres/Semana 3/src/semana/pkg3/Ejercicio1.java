@@ -4,7 +4,7 @@ package semana.pkg3;
 public class Ejercicio1 {
     
     public static void main(String[] args) {
-        int Num = 7;
+        int Num = 770;
         
         if (Num % 2 == 0) {
             System.out.println("El Número Ingresado Es Par.");            

@@ -4,7 +4,7 @@ package semana.pkg3;
 public class Ejercicio6 {
     
     public static void main(String[] args) {
-        int N_Horas = 8400;
+        int N_Horas = 8790;
         int N = N_Horas;
         int Semanas = 0, Días = 0;
         if (N_Horas < 24) {
