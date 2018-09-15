@@ -16,17 +16,7 @@ public class Multimedia {
     public Multimedia(String _Titulo, String _Autor, String _Formato, double _Duracion){
         Titulo = _Titulo;
         Autor = _Autor;
-        
-        String[] Formatos = {"wav", "mp3", "midi", "avi", "mov", "mpg", "cdAudio", "dvd"};
-        
-        for(int W = 0; W <= Formatos.length; W++){
-            if (Formatos[W].equals(_Formato)){
-                Formato = _Formato;
-                break;
-            }else{
-                System.out.print("El Formato Ingresado No Es Correcto");
-            }
-        }
+        Formato = _Formato;
         Duracion = _Duracion;
     }
     public void datos(){
@@ -34,7 +24,7 @@ public class Multimedia {
     }
     @Override
     public String toString(){
-        String message = "Titulo: "+ Titulo + ", Autor: "+ Autor + ", Formato: " + Formato + ", Duracion: " + Duracion;
+        String message = "\n\nTitulo: "+ Titulo + "\nAutor: "+ Autor + "\nFormato: " + Formato + "\nDuracion: " + Duracion;
         return message;
     }
     public boolean equals(String _Titulo, String _Autor){

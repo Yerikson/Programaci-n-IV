@@ -23,8 +23,8 @@ public class Pelicula extends Multimedia{
     }
     @Override
     public String toString(){
-        String message = "Titulo: "+ Titulo + ", Autor: "+ Autor + ", Formato: " + Formato + ", Duracion: " + Duracion 
-                + ", Actor: " + Actor + ", Actriz: " + Actriz;
+        String message = "\n\nTitulo: "+ Titulo + "\nAutor: "+ Autor + "\nFormato: " + Formato + "\nDuracion: " + Duracion 
+                + "\nActor: " + Actor + "\nActriz: " + Actriz + "\n";
         return message;
     }
 }

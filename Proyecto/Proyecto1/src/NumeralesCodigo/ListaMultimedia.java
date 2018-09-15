@@ -8,7 +8,7 @@ package NumeralesCodigo;
 /* Proyecto1 Punto C.)*/
 public class ListaMultimedia {
     protected Multimedia Objetos [];
-    protected int contador;
+    protected int Contador = 0;
     protected int Cantidad_De_Datos;
 
     public ListaMultimedia(int Tamaño){
@@ -19,22 +19,28 @@ public class ListaMultimedia {
         return Objetos.length;
     }
     public boolean add(Multimedia Mult){
-        if (Cantidad_De_Datos < Objetos.length){
-            Objetos[Cantidad_De_Datos] = Mult;
+        if (Contador < Objetos.length){
+            Objetos[Contador] = Mult;
+            Contador += 1;
             return true;
         }
-        return false;
+        else{
+            return false;
+    }
     }
     Multimedia get(int Pos){
-        return Objetos[Pos+1];
+        return Objetos[Pos];
     }
 
     public String toString(ListaMultimedia Lista){
-        StringBuilder _List = new StringBuilder();
-        for(int W = 0; W <= Lista.size(); W++){
-            _List = _List.append(Lista.get(W));
+        StringBuilder List = new StringBuilder();
+        for(int W = 0; W < Lista.size(); W++){
+            List = List.append(Lista.get(W));
         }
-        return _List.toString();
+        return List.toString();
     }
+
+ 
+    
 
 }

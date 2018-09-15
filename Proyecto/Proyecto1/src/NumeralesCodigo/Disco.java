@@ -17,8 +17,8 @@ public class Disco extends Multimedia{
     @Override
     public String toString(){
         
-        String message="Titulo: "+ Titulo + ", Autor: "+ Autor + ", Formato: "+ Formato + ", Duracion: "+ Duracion
-                      + ", Genero: "+ Genero;
+        String message = "\n\nTitulo: "+ Titulo + "\nAutor: "+ Autor + "\nFormato: "+ Formato + "\nDuracion: "+ Duracion
+                      + "\nGenero: "+ Genero + "\n";
         return message;
     }
 }
