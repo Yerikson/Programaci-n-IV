@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 //Punto B.)
 public class Pila1 {
-    ArrayList<Object> NuevaPila;
+    ArrayList<Publicaciones> NuevaPila;
     
     public Pila1 (){
         NuevaPila = new ArrayList<>();
@@ -17,7 +17,7 @@ public class Pila1 {
         return NuevaPila.size();
     }
     
-    public Object get(int K){
+    public Publicaciones get(int K){
         return NuevaPila.get(K);
     }
     
@@ -25,17 +25,17 @@ public class Pila1 {
         return NuevaPila.isEmpty();
     }
     
-    public Object extraer() {
-        Object ElemExtraido = NuevaPila.remove(0);
+    public Publicaciones extraer() {
+        Publicaciones ElemExtraido = NuevaPila.remove(0);
         return ElemExtraido;
     }
     
-    public Object primero() {
-        Object PrimerElem = NuevaPila.get(0);
+    public Publicaciones primero() {
+        Publicaciones PrimerElem = NuevaPila.get(0);
         return PrimerElem;
     }
     
-    public void añadir(Object K) {
+    public void añadir(Publicaciones K) {
         NuevaPila.add(K);
     }
     
