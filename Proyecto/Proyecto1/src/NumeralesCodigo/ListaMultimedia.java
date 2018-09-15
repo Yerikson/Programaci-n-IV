@@ -9,10 +9,8 @@ package NumeralesCodigo;
 public class ListaMultimedia {
     protected Multimedia Objetos [];
     protected int Contador = 0;
-    protected int Cantidad_De_Datos;
 
     public ListaMultimedia(int Tamaño){
-        Cantidad_De_Datos = Tamaño;
         Objetos = new Multimedia[Tamaño];
     }
     public int size(){

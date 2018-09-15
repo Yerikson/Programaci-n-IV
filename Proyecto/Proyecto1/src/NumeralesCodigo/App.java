@@ -13,7 +13,7 @@ public class App {
         ListaMultimedia Lista1 = new ListaMultimedia(10);
         
         Pelicula Pelicula1 = new Pelicula("Pitufos", "Papa Pitufo", "dvd", 102.3);
-        Pelicula1.Actores("PitufiValiente", "");
+        Pelicula1.Actores("PitufiValiente", "Pitufina");
 
         Pelicula Pelicula2 = new Pelicula("Avengers", "Pablo Neruda", "dvd", 114.20);
         Pelicula2.Actores("", "Viuda");
