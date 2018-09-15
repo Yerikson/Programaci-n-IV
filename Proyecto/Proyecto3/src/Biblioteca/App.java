@@ -37,7 +37,7 @@ public class App {
         Publicaciones Libro1 = new Publicaciones(8907889, "Eragon", 2006);
         Publicaciones Libro2 = new Publicaciones(5606009, "Ready Player One", 2000);
         
-        Publicaciones Revista1 = new Publicaciones(7061071, "Economy", 1900, 16);
+        Publicaciones Revista1 = new Publicaciones(7061071, "Economy", 1901, 16);
         Publicaciones Revista2 = new Publicaciones(5647893, "Tress", 1925, 30);
         
         Biblioteca1.añadir(Libro1);
