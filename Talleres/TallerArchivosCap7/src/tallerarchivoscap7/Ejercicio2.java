@@ -16,7 +16,8 @@ public class Ejercicio2 {
             FileReader FR = new FileReader(ArchivoEjercicio2);
             BufferedReader BR = new BufferedReader(FR);
             String Cad;            
-            int SumaElementos = 0, TotalElementos = 0, N, Result;
+            int SumaElementos = 0, TotalElementos = 0, N;
+            double Result;
             while((Cad = BR.readLine()) != null){                
                 N = Integer.parseInt(Cad);
                 SumaElementos += N;
