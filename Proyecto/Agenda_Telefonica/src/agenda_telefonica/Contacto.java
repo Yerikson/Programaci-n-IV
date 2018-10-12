@@ -19,12 +19,13 @@ public class Contacto {
     public String Direccion;
     public String Alias;
 
-    public Contacto(String Nombre, int Cantidad_Telefonos, String Correo, String Direccion, String Alias) {
+    public Contacto(String Nombre, int Cantidad_Telefonos, String Correo, String Direccion, String Alias, String[] Telefonos) {
         this.Nombre = Nombre;
         this.Cantidad_Telefonos = Cantidad_Telefonos;
         this.Correo = Correo;
         this.Direccion = Direccion;
         this.Alias = Alias;
+        this.Telefonos = Telefonos;
     }
 
     public String getNombre() {
@@ -77,8 +78,8 @@ public class Contacto {
 
     @Override
     public String toString() {
-        return "Contacto{" + "Nombre=" + Nombre + ", Cantidad_Telefonos=" + Cantidad_Telefonos + ", Telefonos=" 
-                + Arrays.toString(Telefonos) + ", Correo=" + Correo + ", Direccion=" + Direccion + ", Alias=" + Alias + '}';
+        return Nombre + "; " + Cantidad_Telefonos + "; " + Arrays.toString(Telefonos) + "; " + Correo + "; " + Direccion + "; " 
+                + Alias;
     }
     
     
