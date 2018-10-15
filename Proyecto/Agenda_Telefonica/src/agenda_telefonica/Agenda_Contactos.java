@@ -39,8 +39,9 @@ public class Agenda_Contactos {
     }
     
     public static ArrayList<Contacto> Busqueda(ArrayList<Contacto> A, String Dato,int OpDato){
-            ArrayList<Contacto> Coincidencias = null;
+            ArrayList<Contacto> Coincidencias = new ArrayList<Contacto>();
             String Aux;
+            boolean Flag = false;
             int AuxCantTel;
             switch (OpDato){
                 case 1:
@@ -48,8 +49,11 @@ public class Agenda_Contactos {
                         Aux = A.get(i).getNombre();
                         if(Dato.equals(Aux)){
                             Coincidencias.add(A.get(i));
-                        }
-                                                    
+                            Flag = true;
+                        }                                                    
+                    }
+                    if(Flag == false){
+                        Coincidencias = null;
                     }
                     break;
                 case 2:
@@ -61,18 +65,26 @@ public class Agenda_Contactos {
                             Aux = AuxTel[j];
                             if(Dato.equals(Aux)){
                                 Coincidencias.add(A.get(i));
-                                break;
+                                Flag = true;
+                               break;
                             }                            
                         }                                                                                                  
+                    }
+                    if(Flag == false){
+                        Coincidencias = null;
                     }
                     break;
                 case 3:
                     for (int i = 0; i < A.size(); i++) {
                         Aux = A.get(i).getCorreo();
-                        if(Dato.equals(Aux)){
+                        if(Dato.equals(Aux)){                           
                             Coincidencias.add(A.get(i));
+                            Flag = true;
                         }
                                                     
+                    }
+                    if(Flag == false){
+                        Coincidencias = null;
                     }
                     break;
                 case 4:
@@ -80,8 +92,12 @@ public class Agenda_Contactos {
                         Aux = A.get(i).getDireccion();
                         if(Dato.equals(Aux)){
                             Coincidencias.add(A.get(i));
+                            Flag = true;
                         }
                                                     
+                    }
+                    if(Flag == false){
+                        Coincidencias = null;
                     }
                     break;
                 case 5:
@@ -89,10 +105,19 @@ public class Agenda_Contactos {
                         Aux = A.get(i).getAlias();
                         if(Dato.equals(Aux)){
                             Coincidencias.add(A.get(i));
+                            Flag = true;
                         }
                                                     
                     }
+                    if(Flag == false){
+                        Coincidencias = null;
+                    }
                     break;
+                default:
+                    System.out.println("Opción De Busqueda Invalida. Recuerde Que La Busqueda"
+                            + " Solo Acepta Opciones Desde 1 A 5");
+                    Coincidencias = null;
+                        
             }
             return Coincidencias;
     }
@@ -166,43 +191,68 @@ public class Agenda_Contactos {
     public static ArrayList<Contacto> Modificar(ArrayList<Contacto> A,int Opcion ,String Dato, String DatoNuevo){
             int Index2;
             Index2 = BusquedaIndex(A,Dato,Opcion);
-           switch (Opcion){
-            case 1:
-                A.get(Index2).setNombre(DatoNuevo);
-                break;
-                
-            case 2:
-                //CONSTRUCTOR TELEFONOS CONTACTO
-                int AuxCanTel = A.get(Index2).getCantidad_Telefonos();
-                String[ ] AuxTel = new String[AuxCanTel];
-                AuxTel = A.get(Index2).getTelefonos();
-                for (int i = 0; i < AuxCanTel; i++) {
-                    if (Dato.equals(AuxTel[i])) {
-                        AuxTel[i] = DatoNuevo;
-                        A.get(Index2).setTelefonos(AuxTel);
-                        break;
-                    }                    
+            if (Index2 != -1) {
+
+                switch (Opcion){
+                     case 1:
+                         A.get(Index2).setNombre(DatoNuevo);
+                         break;
+
+                     case 2:                         
+                         int AuxCanTel = A.get(Index2).getCantidad_Telefonos();
+                         String[ ] AuxTel = new String[AuxCanTel];
+                         AuxTel = A.get(Index2).getTelefonos();
+                         for (int i = 0; i < AuxCanTel; i++) {
+                             if (Dato.equals(AuxTel[i])) {
+                                 AuxTel[i] = DatoNuevo;
+                                 A.get(Index2).setTelefonos(AuxTel);
+                                 break;
+                             }                    
+                         }
+
+                     case 3:
+                         A.get(Index2).setCorreo(DatoNuevo);
+                         break;
+
+                     case 4:
+                         A.get(Index2).setDireccion(DatoNuevo);
+                         break;
+
+                     case 5:
+                         A.get(Index2).setAlias(DatoNuevo);
+                         break;
+                 }
+
+             }
+            else{
+                if (Opcion <= 5 && Opcion > 0) {
+                    System.out.println("Lo Sentimos El Dato Que Desea Modificar No Se Halla Dentro De La Agenda");
+                } else {
+                    System.out.println("Opción De Modificación Invalida. Recuerde Que La Modificación"
+                                + " Solo Acepta Opciones Desde 1 A 5");
                 }
                 
-            case 3:
-                A.get(Index2).setCorreo(DatoNuevo);
-                break;
-
-            case 4:
-                A.get(Index2).setDireccion(DatoNuevo);
-                break;
-
-            case 5:
-                A.get(Index2).setAlias(DatoNuevo);
-                break;
-        }
+            }
+            
             return A;
     }
     
     public static ArrayList<Contacto> Eliminar(ArrayList<Contacto> A,int Opcion, String Dato){
             int Index2;
             Index2 = BusquedaIndex(A,Dato,Opcion);
-            A.remove(Index2);
+            if(Index2 != -1){
+                A.remove(Index2);
+            }
+            else{
+                if (Opcion <= 5 && Opcion > 0) {
+                    System.out.println("Lo Sentimos No Se Ha Encontrado Ningun Contacto Dentro De La Agenda"
+                            + " Asociado Al Dato Ingresado");
+                } else {
+                    System.out.println("Opción De Eliminación Invalida. Recuerde Que La Eliminación"
+                                + " Solo Acepta Opciones Desde 1 A 5");
+                }
+            }
+            
             return A;
     }
     
