@@ -5,19 +5,28 @@
  */
 package agenda_telefonica;
 
+
+
+
+
 import static agenda_telefonica.Agenda_Contactos.Agregar;
 import static agenda_telefonica.Agenda_Contactos.Busqueda;
 import static agenda_telefonica.Agenda_Contactos.Eliminar;
 import static agenda_telefonica.Agenda_Contactos.Modificar;
 import static agenda_telefonica.Agenda_Contactos.Unico;
 import java.util.ArrayList;
-
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
 /**
  *
  * @author USER
  */
-public class Principal {
-    public static void main(String[] args) {
+public class Principal extends ManejoArchivos{
+    
+    public static void main(String[] args) throws ClassNotFoundException, IOException{
+        File AgendaArchivo;
+        AgendaArchivo = new File("AgendaArchivo.txt");
         ArrayList<Contacto> AgendaContactos = new ArrayList<Contacto>();
         Contacto PI;
         String[ ] Telefonos1 = new String[3];
@@ -30,7 +39,7 @@ public class Principal {
         Telefonos2[0] = "102";
         Telefonos2[1] = "321";
         Telefonos2[2] = "345";
-        PI= new Contacto("Jose",3,"ZUKO","11A-B","Jacinta", Telefonos2);
+        PI= new Contacto("Jose",3,"","11A-B","Jacinta", Telefonos2);
         AgendaContactos.add(PI);
         
         //-----------Mostrar la lista------------------
@@ -42,6 +51,16 @@ public class Principal {
         int Opcion;
         Opcion = 13;
         boolean T;
+        ArrayList<Contacto> X1 = new ArrayList<Contacto>();
+        Telefonos2[0]="1";
+        PI = new Contacto("Pedro",2,"Correo","12-20A","Pedrito",Telefonos2);
+        AgendaContactos.add(PI);
+        EscribirSerializable(AgendaArchivo, AgendaContactos);
+        X1 = LecturaSerializable(AgendaArchivo);
+        for (Contacto B : X1) {
+            System.out.println(B);
+        }
+        Exportar(AgendaArchivo);
         //-------------------UNICO-------------------
         /*T = Unico(AgendaContactos, Z);
         if (T == true) {
@@ -49,7 +68,7 @@ public class Principal {
         } else {
             System.out.println("El numero no esta");
         }*/
-        ArrayList<Contacto> X1 = new ArrayList<Contacto>();
+        
         //X1 = null;
         //--------------BUSQUEDA-----------------
         /*X1 = Busqueda(AgendaContactos, Z, Opcion);
@@ -83,11 +102,13 @@ public class Principal {
         }*/
         
         //------ELiminar---------
-        AgendaContactos = Eliminar(AgendaContactos, 0, "PEPE");
+        /*AgendaContactos = Eliminar(AgendaContactos, 0, "PEPE");
         for (Contacto B : AgendaContactos) {
             System.out.println(B);
-        }
+        }*/
     }
+
+ 
         
     }
 

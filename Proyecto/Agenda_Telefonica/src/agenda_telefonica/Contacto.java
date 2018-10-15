@@ -6,12 +6,12 @@
 package agenda_telefonica;
 
 import java.util.Arrays;
-
+import java.io.Serializable;
 /**
  *
  * @author USER
  */
-public class Contacto {
+public class Contacto implements Serializable{
     public String Nombre;
     public int Cantidad_Telefonos;
     public String[ ] Telefonos = new String[Cantidad_Telefonos];
@@ -80,6 +80,11 @@ public class Contacto {
     public String toString() {
         return Nombre + "; " + Cantidad_Telefonos + "; " + Arrays.toString(Telefonos) + "; " + Correo + "; " + Direccion + "; " 
                 + Alias;
+    }
+    
+    public String Exportar(){
+        return Nombre + ";" + Arrays.toString(Telefonos) + ";" + Correo + ";" + Direccion + ";" + Alias;
+        
     }
     
     

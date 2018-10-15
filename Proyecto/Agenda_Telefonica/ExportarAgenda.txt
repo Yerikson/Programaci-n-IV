@@ -1,0 +1,3 @@
+David;[321, 654, 987];Y;12A;PEPE
+Jose;[1, 321, 345];;11A-B;Jacinta
+Pedro;[1, 321, 345];Correo;12-20A;Pedrito
