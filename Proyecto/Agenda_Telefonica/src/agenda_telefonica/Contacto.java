@@ -83,7 +83,7 @@ public class Contacto implements Serializable{
     }
     
     public String Exportar(){
-        return Nombre + ";" + Arrays.toString(Telefonos) + ";" + Correo + ";" + Direccion + ";" + Alias;
+        return Nombre + ";" + Cantidad_Telefonos + ";"+ Arrays.toString(Telefonos) + ";" + Correo + ";" + Direccion + ";" + Alias;
         
     }
     

@@ -5,6 +5,7 @@ package agenda_telefonica;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import static agenda_telefonica.Agenda_Contactos.Agregar;
 import agenda_telefonica.Contacto;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -19,6 +20,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 /**
  *
@@ -71,6 +73,39 @@ public class ManejoArchivos {
                 e.printStackTrace();
             }
             }
+    public static void Importar(File A) throws ClassNotFoundException{
+        ArrayList<Contacto> M = new ArrayList<Contacto>();
+        M = LecturaSerializable(A);
+        try {
+            File ImportarAgenda = new File("ImportarAgenda.txt");
+            FileReader FR = new FileReader(ImportarAgenda);
+            BufferedReader BR = new BufferedReader(FR);
+            String Linea;                        
+            while((Linea = BR.readLine()) != null){  
+                String [] Contac = Linea.split(";");
+                Contacto Importado;
+                int CanTel = Integer.parseInt(Contac[1]);
+                String Tels = Contac[2];
+                Tels = Tels.replace("[", "");
+                Tels = Tels.replace("]", "");
+                Tels = Tels.replaceAll(" ", "");
+                String [] TelefonosContacto = Tels.split(",");
+                Importado = new Contacto(Contac[0], CanTel, Contac[3], Contac[4], Contac[5], TelefonosContacto);                
+               // M = Agregar(M, Importado);
+                M.add(Importado);
+            }
+            
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        EscribirSerializable(A, M);
     }
+        
+       
+        
+    }
+    
         
     

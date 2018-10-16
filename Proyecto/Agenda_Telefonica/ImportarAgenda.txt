@@ -1,0 +1,2 @@
+Solome;3;[234, 7890, 3214];Dimitri@;15B-H;Jorge
+Alberto;2;[8762, 1122334];JoseP@;;Lupe
