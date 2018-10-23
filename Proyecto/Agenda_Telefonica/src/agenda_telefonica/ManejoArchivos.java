@@ -6,6 +6,8 @@ package agenda_telefonica;
  * and open the template in the editor.
  */
 import static agenda_telefonica.Agenda_Contactos.Agregar;
+import static agenda_telefonica.Agenda_Contactos.EsNumero;
+import static agenda_telefonica.Agenda_Contactos.Unico;
 import agenda_telefonica.Contacto;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -75,13 +77,17 @@ public class ManejoArchivos {
             }
     public static void Importar(File A) throws ClassNotFoundException{
         ArrayList<Contacto> M = new ArrayList<Contacto>();
-        M = LecturaSerializable(A);
+        if(((int) A.length()) != 0){
+            
+            M = LecturaSerializable(A);                      
+        }       
         try {
             File ImportarAgenda = new File("ImportarAgenda.txt");
             FileReader FR = new FileReader(ImportarAgenda);
             BufferedReader BR = new BufferedReader(FR);
             String Linea;                        
             while((Linea = BR.readLine()) != null){  
+                boolean Flag = true;
                 String [] Contac = Linea.split(";");
                 Contacto Importado;
                 int CanTel = Integer.parseInt(Contac[1]);
@@ -89,10 +95,41 @@ public class ManejoArchivos {
                 Tels = Tels.replace("[", "");
                 Tels = Tels.replace("]", "");
                 Tels = Tels.replaceAll(" ", "");
-                String [] TelefonosContacto = Tels.split(",");
+                String [] TelefonosContacto = Tels.split(",");                
                 Importado = new Contacto(Contac[0], CanTel, Contac[3], Contac[4], Contac[5], TelefonosContacto);                
-               // M = Agregar(M, Importado);
-                M.add(Importado);
+                if(M.isEmpty() != true){
+                    for (int i = 0; i < CanTel; i++) {                     
+                        if(TelefonosContacto[i].length() == 7){
+                            if (EsNumero(TelefonosContacto[i]) == true) {
+                                boolean T = Unico(M, TelefonosContacto[i]);
+                                if (T == true) {
+                                    System.out.println("\nLo Sentimos El Número Del Siguiente Contacto Ya Se Encuentra Dentro De La Agenda Por Ende No Puede Ser Importado"
+                                            + " A La Agenda");                                    
+                                    System.out.println(Importado.toString());
+                                    Flag = false;
+                                    break;
+                                } 
+                            } else {
+                                System.out.println("\nLo Sentimos Uno De Los Números Del Siguiente Contacto Es Invalido"
+                                        + " Por Ende No Puede Ser Importado");
+                                Flag = false;
+                                System.out.println(Importado.toString());
+                                break;
+
+                               }
+                        } else{
+                            System.out.println("\nLo Sentimos Uno De Los Números Del Siguiente Contacto No Es Un Número Telefónico Valido"
+                                    + " (Recuerde Que Un Número Telefónico Esta Compuesto Solo Por 7 Números)");
+                            Flag = false;
+                            System.out.println(Importado.toString());
+                            break;
+                        }                
+                    }
+                } 
+                
+                if(Flag == true){                    
+                    M.add(Importado);
+                }
             }
             
             } catch (FileNotFoundException e) {
@@ -101,10 +138,7 @@ public class ManejoArchivos {
                 e.printStackTrace();
             }
         EscribirSerializable(A, M);
-    }
-        
-       
-        
+    }                       
     }
     
         

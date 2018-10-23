@@ -370,82 +370,106 @@ public class Agenda_Contactos {
                     
                     break;
                case 3:
-                   System.out.println("Estos Son Todos Los Contactos Almcenados Hasta El Momento En La Agenda: ");
-                   X1 = LecturaSerializable(A);
-                   System.out.println("\n");
-                    for (Contacto B : X1) {                        
-                        System.out.println(B);
-                    }
-                   DesplegarCriterios();
-                   System.out.println("Por Favor Ingrese Un Criterio Sobre El Cual "
-                           + " Se Aplicara El Proceso De Eliminación: ");
-                   int Crit = Integer.parseInt(NumOp.next());
-                   System.out.println("\nNOTA: Se Eliminara El Primer Contacto Que Cumpla Con Dicho Criterio De Eliminación.");
-                   System.out.println("\nPor Favor Ingrese EL Dato Relacionado Al Criterio Elegido: ");
-                   String Dato = NumOp.next();
-                   P = Eliminar(P, Crit, Dato);
-                   EscribirSerializable(A, P);
-                   System.out.println("El Contacto Ha Sido Eliminado Con Éxito.");
+                   if (((int) A.length()) != 0) {
+                        System.out.println("Estos Son Todos Los Contactos Almcenados Hasta El Momento En La Agenda: ");
+                        X1 = LecturaSerializable(A);
+                        System.out.println("\n");
+                         for (Contacto B : X1) {                        
+                             System.out.println(B);
+                         }
+                        DesplegarCriterios();
+                        System.out.println("Por Favor Ingrese Un Criterio Sobre El Cual "
+                                + " Se Aplicara El Proceso De Eliminación: ");
+                        int Crit = Integer.parseInt(NumOp.next());
+                        System.out.println("\nNOTA: Se Eliminara El Primer Contacto Que Cumpla Con Dicho Criterio De Eliminación.");
+                        System.out.println("\nPor Favor Ingrese EL Dato Relacionado Al Criterio Elegido: ");
+                        String Dato = NumOp.next();
+                        P = Eliminar(P, Crit, Dato);
+                        EscribirSerializable(A, P);
+                        System.out.println("El Contacto Ha Sido Eliminado Con Éxito.");
+                       
+                   } else {
+                       System.out.println("\nActualmente La Agenda Se Halla Vacia.");
+                   }
+
                    DesplegarMenu();
                    
                    break;
                case 4:
-                   System.out.println("Estos Son Todos Los Contactos Almcenados Hasta El Momento En La Agenda: ");
-                   X1 = LecturaSerializable(A);
-                   System.out.println("\n");
-                    for (Contacto B : X1) {                        
-                        System.out.println(B);
-                    }
-                   DesplegarCriterios();
-                   System.out.println("Por Favor Ingrese Un Criterio Sobre El Cual "
-                           + " Se Aplicara El Proceso De Modificación: ");
-                   int Crit1 = Integer.parseInt(NumOp.next());
-                   System.out.println("\nNOTA: Se Modificara El Primer Contacto Que Cumpla Con Dicho Criterio De Modificación.");
-                   System.out.println("\nPor Favor Ingrese EL Dato Relacionado Al Criterio Elegido: ");
-                   String Dato1 = NumOp.next();
-                   System.out.println("\nPor Ingrese El Nuevo Dato Por El Que Desea Remplazar El Anteriormente Ingresado: ");
-                   String DatoN = NumOp.next();
-                   P = Modificar(P, Crit1, Dato1, DatoN);
-                   EscribirSerializable(A, P);
-                   System.out.println("El Contacto Ha Sido Modificado Con Éxito.");
+                   if (((int) A.length()) != 0) {
+                        System.out.println("Estos Son Todos Los Contactos Almcenados Hasta El Momento En La Agenda: ");
+                        X1 = LecturaSerializable(A);
+                        System.out.println("\n");
+                         for (Contacto B : X1) {                        
+                             System.out.println(B);
+                         }
+                        DesplegarCriterios();
+                        System.out.println("Por Favor Ingrese Un Criterio Sobre El Cual "
+                                + " Se Aplicara El Proceso De Modificación: ");
+                        int Crit1 = Integer.parseInt(NumOp.next());
+                        System.out.println("\nNOTA: Se Modificara El Primer Contacto Que Cumpla Con Dicho Criterio De Modificación.");
+                        System.out.println("\nPor Favor Ingrese EL Dato Relacionado Al Criterio Elegido: ");
+                        String Dato1 = NumOp.next();
+                        System.out.println("\nPor Ingrese El Nuevo Dato Por El Que Desea Remplazar El Anteriormente Ingresado: ");
+                        String DatoN = NumOp.next();
+                        P = Modificar(P, Crit1, Dato1, DatoN);
+                        EscribirSerializable(A, P);
+                        System.out.println("El Contacto Ha Sido Modificado Con Éxito.");
+
+                   } else {
+                       System.out.println("\nActualmente La Agenda Se Halla Vacia.");
+                   }
+
                    DesplegarMenu();
                    
                    break;
                case 5:
-                   DesplegarCriterios();
-                   System.out.println("Por Favor Ingrese Un Criterio Sobre El Cual "
-                           + " Se Aplicara El Proceso De Búsqueda: ");
-                   int Crit2 = Integer.parseInt(NumOp.next());
-                   System.out.println("\nNOTA: Se Buscaran Y Mostraran Todos Los Contactos Que Cumplan Con El Criterio De Búsqueda.");
-                   System.out.println("\nPor Favor Ingrese EL Dato Relacionado Al Criterio Elegido: ");
-                   String Dato2 = NumOp.next();
-                   X1 = Busqueda(P, Dato2, Crit2);      
-                    if (X1 == null && Crit2 <= 5) {
-                        System.out.println("No se hallaron coincidencias");
-                    } 
-                    if(X1 != null) {
-                        System.out.println("Contactos Que Cumplen Con El Criterio De Busqueda");
-                        for (Contacto B : X1) {
-                            System.out.println(B);
-                        }
-                    }
+                   if (((int) A.length()) != 0) {
+                        DesplegarCriterios();
+                        System.out.println("Por Favor Ingrese Un Criterio Sobre El Cual "
+                                + " Se Aplicara El Proceso De Búsqueda: ");
+                        int Crit2 = Integer.parseInt(NumOp.next());
+                        System.out.println("\nNOTA: Se Buscaran Y Mostraran Todos Los Contactos Que Cumplan Con El Criterio De Búsqueda.");
+                        System.out.println("\nPor Favor Ingrese EL Dato Relacionado Al Criterio Elegido: ");
+                        String Dato2 = NumOp.next();
+                        X1 = Busqueda(P, Dato2, Crit2);      
+                         if (X1 == null && Crit2 <= 5) {
+                             System.out.println("No se hallaron coincidencias");
+                         } 
+                         if(X1 != null) {
+                             System.out.println("Contactos Que Cumplen Con El Criterio De Busqueda");
+                             for (Contacto B : X1) {
+                                 System.out.println(B);
+                             }
+                         }
+                       
+                   } else {
+                        System.out.println("\nActualmente La Agenda Se Halla Vacia.");
+                   }
+                    
                     DesplegarMenu();
                     
                     break;
                case 6:
-                   Exportar(A);
-                   System.out.println("\nExportación Exitosa");
+                   if (((int) A.length()) != 0) {
+                       Exportar(A);
+                       System.out.println("\nExportación Exitosa");
+                       
+                   } else {
+                       System.out.println("\nActualmente La Agenda Se Halla Vacia, Por Ende No Se Puede Exportar Ningún Contacto");
+                   }
+                                      
                    DesplegarMenu();
                    
                    break;
                case 7:
                    Importar(A);
                    X1 = LecturaSerializable(A);
-                   System.out.println("\nAgenda Con Los Datos Recién Exportados: ");
+                   System.out.println("\nAgenda Con Los Datos Recién Importados: ");
                     for (Contacto B : X1) {
                         System.out.println(B);
                     }
-                    System.out.println("\nExportación Éxitosa");
+                    System.out.println("\nImportación Éxitosa");
                     DesplegarMenu();
                     
                     break;
