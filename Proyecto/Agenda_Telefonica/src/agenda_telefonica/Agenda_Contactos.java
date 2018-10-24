@@ -341,6 +341,68 @@ public class Agenda_Contactos {
         System.out.println("5.Por El Alias");        
     }
     
+    public static ArrayList<Contacto> EliminarIndex(ArrayList<Contacto> A, int P){
+        
+        if(P < A.size() && P >= 0){
+            A.remove(P);  
+        }else{
+            System.out.println("Lo Sentimos No Existo Ningún Contacto Con La Posición: " + P);
+        }
+        return A;
+        
+    }
+    
+    public static ArrayList<Contacto> ModificarIndex(ArrayList<Contacto> A,int Opcion ,int P, String DatoNuevo){
+        if(P < A.size() && P >= 0){
+            
+            switch (Opcion){
+                         case 1:
+                             A.get(P).setNombre(DatoNuevo);
+                             break;
+
+                         case 2:                         
+                             int AuxCanTel = A.get(P).getCantidad_Telefonos();
+                             String[ ] AuxTel = new String[AuxCanTel];
+                             AuxTel = A.get(P).getTelefonos();
+                             System.out.println("Por Favor Ingrese El Telefono Del Contacto Número " + P + " Que Desea Modificar");
+                             Scanner Tel = new Scanner(System.in);  
+                             String Dato = Tel.next();
+                             for (int i = 0; i < AuxCanTel; i++) {
+                                 if (Dato.equals(AuxTel[i])) {
+                                     AuxTel[i] = DatoNuevo;
+                                     A.get(P).setTelefonos(AuxTel);
+                                     break;
+                                 }                    
+                             }
+
+                         case 3:
+                             A.get(P).setCorreo(DatoNuevo);
+                             break;
+
+                         case 4:
+                             A.get(P).setDireccion(DatoNuevo);
+                             break;
+
+                         case 5:
+                             A.get(P).setAlias(DatoNuevo);
+                             break;
+                     }
+
+     }
+            else{
+                if (Opcion <= 5 && Opcion > 0) {
+                    System.out.println("Lo Sentimos El Dato Que Desea Modificar No Se Halla Dentro De La Agenda");
+                } else {
+                    System.out.println("Opción De Modificación Invalida. Recuerde Que La Modificación"
+                                + " Solo Acepta Opciones Desde 1 A 5");
+                }
+                
+            }
+        
+        
+        return A;
+        
+    }
     public static void Menu(File A, ArrayList<Contacto> P)throws ClassNotFoundException, IOException{
         int Opcion;
         ArrayList<Contacto> X1 = new ArrayList<Contacto>();
@@ -374,20 +436,39 @@ public class Agenda_Contactos {
                         System.out.println("Estos Son Todos Los Contactos Almcenados Hasta El Momento En La Agenda: ");
                         X1 = LecturaSerializable(A);
                         System.out.println("\n");
-                         for (Contacto B : X1) {                        
+                        int Fo = 1;
+                         for (Contacto B : X1) {   
+                             System.out.println("Contacto Número: " + Fo);
+                             Fo += 1;
                              System.out.println(B);
                          }
-                        DesplegarCriterios();
-                        System.out.println("Por Favor Ingrese Un Criterio Sobre El Cual "
-                                + " Se Aplicara El Proceso De Eliminación: ");
-                        int Crit = Integer.parseInt(NumOp.next());
-                        System.out.println("\nNOTA: Se Eliminara El Primer Contacto Que Cumpla Con Dicho Criterio De Eliminación.");
-                        System.out.println("\nPor Favor Ingrese EL Dato Relacionado Al Criterio Elegido: ");
-                        String Dato = NumOp.next();
-                        P = Eliminar(P, Crit, Dato);
-                        EscribirSerializable(A, P);
-                        System.out.println("El Contacto Ha Sido Eliminado Con Éxito.");
-                       
+                        System.out.println("Por Favor Elija Un Método De Eliminación:");
+                        System.out.println("1. Eliminar El Primer Contacto Dentro De La Agenda Que Contenga Un Determinado Dato.\n"
+                        + "2. Eliminar El Contacto Que Corresponda A Un Número Dado.\n");
+                        System.out.print("Por Favor Ingrese La Opción De Eliminación: ");
+                        int ElimOp = Integer.parseInt(NumOp.next());
+                        if(ElimOp == 1){
+                            DesplegarCriterios();
+                            System.out.println("Por Favor Ingrese Un Criterio Sobre El Cual "
+                                    + " Se Aplicara El Proceso De Eliminación: ");
+                            int Crit = Integer.parseInt(NumOp.next());
+                            System.out.println("\nNOTA: Se Eliminara El Primer Contacto Que Cumpla Con Dicho Criterio De Eliminación.");
+                            System.out.println("\nPor Favor Ingrese EL Dato Relacionado Al Criterio Elegido: ");
+                            String Dato = NumOp.next();
+                            P = Eliminar(P, Crit, Dato);
+                            EscribirSerializable(A, P);
+                            System.out.println("El Contacto Ha Sido Eliminado Con Éxito.");
+                        }
+                        if(ElimOp == 2){
+                            System.out.print("\nPor Favor Ingrese El Número Correspondiente Al Contacto Que Desea Eliminar: ");
+                            int Posicion = Integer.parseInt(NumOp.next());
+                            Posicion -= 1;
+                            P = EliminarIndex(P, Posicion);
+                            EscribirSerializable(A, P);
+                            System.out.println("\nEl Contacto Ha Sido Eliminado Con Éxito.");
+                        }else{
+                            System.out.println("Opción De Eliminación Invalida.");
+                        }
                    } else {
                        System.out.println("\nActualmente La Agenda Se Halla Vacia.");
                    }
@@ -400,22 +481,47 @@ public class Agenda_Contactos {
                         System.out.println("Estos Son Todos Los Contactos Almcenados Hasta El Momento En La Agenda: ");
                         X1 = LecturaSerializable(A);
                         System.out.println("\n");
-                         for (Contacto B : X1) {                        
+                        int LA = 1;
+                         for (Contacto B : X1) { 
+                             System.out.println("Contacto Número: " + LA);
+                             LA += 1;
                              System.out.println(B);
                          }
-                        DesplegarCriterios();
-                        System.out.println("Por Favor Ingrese Un Criterio Sobre El Cual "
-                                + " Se Aplicara El Proceso De Modificación: ");
-                        int Crit1 = Integer.parseInt(NumOp.next());
-                        System.out.println("\nNOTA: Se Modificara El Primer Contacto Que Cumpla Con Dicho Criterio De Modificación.");
-                        System.out.println("\nPor Favor Ingrese EL Dato Relacionado Al Criterio Elegido: ");
-                        String Dato1 = NumOp.next();
-                        System.out.println("\nPor Ingrese El Nuevo Dato Por El Que Desea Remplazar El Anteriormente Ingresado: ");
-                        String DatoN = NumOp.next();
-                        P = Modificar(P, Crit1, Dato1, DatoN);
-                        EscribirSerializable(A, P);
-                        System.out.println("El Contacto Ha Sido Modificado Con Éxito.");
-
+                        System.out.println("Por Favor Elija Un Método De Modificación:");
+                        System.out.println("1. Modificarar El Dato Del Primer Contacto Dentro De La Agenda Que Coincida.\n"
+                        + "2. Modificar El Contacto Que Corresponda A Un Número Dado.\n");
+                        System.out.print("Por Favor Ingrese La Opción De Modificación: ");
+                        int ModOp = Integer.parseInt(NumOp.next());
+                        if(ModOp == 1){                 
+                            DesplegarCriterios();
+                            System.out.println("Por Favor Ingrese Un Criterio Sobre El Cual "
+                                    + " Se Aplicara El Proceso De Modificación: ");
+                            int Crit1 = Integer.parseInt(NumOp.next());
+                            System.out.println("\nNOTA: Se Modificara El Primer Contacto Que Cumpla Con Dicho Criterio De Modificación.");
+                            System.out.println("\nPor Favor Ingrese EL Dato Relacionado Al Criterio Elegido: ");
+                            String Dato1 = NumOp.next();
+                            System.out.println("\nPor Ingrese El Nuevo Dato Por El Que Desea Reemplazar El Anteriormente Ingresado: ");
+                            String DatoN = NumOp.next();
+                            P = Modificar(P, Crit1, Dato1, DatoN);
+                            EscribirSerializable(A, P);
+                            System.out.println("El Contacto Ha Sido Modificado Con Éxito.");
+                        }
+                        if(ModOp == 2){
+                            DesplegarCriterios();
+                            System.out.print("\nPor Favor Ingrese El Número Correspondiente Al Contacto Que Desea Modificar: ");
+                            int Posicion1 = Integer.parseInt(NumOp.next());
+                            Posicion1 -= 1;
+                            System.out.println("\nPor Favor Ingrese Un Criterio Sobre El Cual "
+                                    + " Se Aplicara El Proceso De Modificación: ");
+                            int Crit3 = Integer.parseInt(NumOp.next());
+                            System.out.println("\nPor Ingrese El Nuevo Dato Por El Que Desea Reemplazar El Correspondiente Al Criterio: ");
+                            String DatoNU = NumOp.next();
+                            P = ModificarIndex(P, Crit3, Posicion1, DatoNU);
+                            EscribirSerializable(A, P);
+                            System.out.println("El Contacto Ha Sido Modificado Con Éxito.");
+                        }else{
+                            System.out.println("Opción De Modificación Invalida.");
+                        }
                    } else {
                        System.out.println("\nActualmente La Agenda Se Halla Vacia.");
                    }
