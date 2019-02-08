@@ -14,6 +14,9 @@ public class Ficha {
     private int posicionX;
     private int posicionY;
 
+    public Ficha(){
+        
+    }
     
     public Ficha(int numeroFicha, ImageIcon imagenFicha, int posicionX, int posicionY) {
         this.numeroFicha = numeroFicha;

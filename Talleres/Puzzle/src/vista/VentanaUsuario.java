@@ -21,7 +21,6 @@ public class VentanaUsuario extends JFrame {
     
     public void agregarPanelFichas(ArrayList<Ficha> fichasOrdenadas){
         
-        //fichasP = new PanelVistas();
         fichasP.crearEspaciosFichas(fichasOrdenadas);
         this.add(fichasP);
     }
@@ -31,6 +30,11 @@ public class VentanaUsuario extends JFrame {
         fichasP.agregarImagenesEspaciosFichas(fichasOrdenadas);
     }
     
+    public void moverFichaPanelFichas(int opcionMovimiento, int posF16){
+        
+        fichasP.moverFicha(opcionMovimiento, posF16);
+                
+    }
     public void agregarPanelExterno(JPanel nuevoPanel){
         this.add(nuevoPanel);
         

@@ -19,6 +19,7 @@ public class Juego {
     public Juego() {
         
     }
+    
     public ArrayList<Ficha> desordenarFichas(ArrayList<Ficha> fichasOrdenadas){
         
         ArrayList<Ficha> Aux = new ArrayList<Ficha>();
@@ -26,6 +27,21 @@ public class Juego {
         Collections.shuffle(Aux);
         
         return Aux;
+        
+        
+    }
+    
+    public int[] vectorOrdenCorrecto(){
+        
+        int [] ordenFichasVector = new int [16];
+        
+        for (int i = 0; i < ordenFichasVector.length; i++) {
+            
+            ordenFichasVector [i] = i+1;
+                        
+        }
+        
+        return ordenFichasVector;
         
         
     }
@@ -88,6 +104,21 @@ public class Juego {
         
     }
     
-    
+    public int buscarPosicionFicha16(ArrayList<Ficha> fichas2){
+        
+        int j = -1;
+        
+        for (int i = 0; i < fichas2.size(); i++) {
+            
+            if(fichas2.get(i).getNumeroFicha() == 16){
+                j = i;
+                break;
+            }
+                       
+        }
+        
+        return j;
+        
+    }
     
 }
