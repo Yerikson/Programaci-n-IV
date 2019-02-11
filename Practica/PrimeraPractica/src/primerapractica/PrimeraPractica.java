@@ -6,7 +6,7 @@ package primerapractica;
  * @author USER
  */
 public class PrimeraPractica {
-
+    
     /**
      * @param args the command line arguments
      */
