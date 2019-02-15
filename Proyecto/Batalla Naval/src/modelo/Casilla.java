@@ -2,29 +2,36 @@
 package modelo;
 
 import java.awt.Color;
-import javax.swing.JLabel;
+import java.awt.Graphics;
+import javax.swing.JButton;
+
 
 /**
  *
  * @author USER
  */
-public class Casilla extends JLabel{
+public class Casilla extends JButton{
  
-    private int contenidaCasilla;
+    private int contenidoCasilla;
 
     public Casilla() {
         
+        
         this.setBackground(Color.yellow);
+        this.setOpaque(false);
+        this.setContentAreaFilled(false);
+        this.setBorderPainted(true);       
                 
     }
 
-    public int getContenidaCasilla() {
+    public int getContenidoCasilla() {
         
-        return contenidaCasilla;
+        return contenidoCasilla;
     }
 
-    public void setContenidaCasilla(int contenidaCasilla) {
-        this.contenidaCasilla = contenidaCasilla;
+    public void setContenidoCasilla(int contenidaCasilla) {
+        
+        this.contenidoCasilla = contenidaCasilla;
     }
     
     
