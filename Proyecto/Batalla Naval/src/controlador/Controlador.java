@@ -74,7 +74,7 @@ public class Controlador {
                 
             }
         };
-        this.menuNuevo.salir.addActionListener(botonJugar);
+        this.menuNuevo.salir.addActionListener(botonSalir);
         
     }
 }
