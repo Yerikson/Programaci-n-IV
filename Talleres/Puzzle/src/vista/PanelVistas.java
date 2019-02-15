@@ -46,12 +46,8 @@ public class PanelVistas extends JPanel{
         //Espacio Para La Ficha Número 1
         this.espFicha1.setBounds(fichasOrdenadas.get(0).getPosicionX()
                 , fichasOrdenadas.get(0).getPosicionY(), 160, 170);        
-        this.espFicha1.setName("L1");
+        this.espFicha1.setName("L1");       
         this.add(espFicha1);
-        
-        //System.out.println("\n Posicion X Espacio uno: " + this.espFicha1.getX());  
-        
-        //System.out.println(this.espFicha1.getName());
         
         //Espacio Para La Ficha Número 2
         this.espFicha2.setBounds(fichasOrdenadas.get(1).getPosicionX()

@@ -1,17 +1,21 @@
 
 package batalla.naval;
 
+import controlador.Controlador;
+import vista.VentanaPrincipal;
+
 /**
  *
  * @author USER
  */
 public class BatallaNaval {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        VentanaPrincipal ventana = new VentanaPrincipal();
+        Controlador nuevoJuego = new Controlador(ventana);
+        nuevoJuego.iniciarJuego();
+        ventana.setVisible(true);
     }
     
 }

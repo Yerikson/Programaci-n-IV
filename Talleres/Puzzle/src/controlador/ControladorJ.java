@@ -38,9 +38,6 @@ public class ControladorJ {
         eventosBotones();
         ventanaPrincipal.agregarPanelExterno(panelBotones);       
         this.ordenFichasV = nuevoJuego.vectorOrdenCorrecto();
-        //System.out.println(this.ordenFichasV [15]);
-       // this.posFicha16 = nuevoJuego.buscarPosicionFicha16(fichasJuego);
-        //System.out.println("Hola: " + posFicha16);
     }
     
     public void iniciarVentana(){
