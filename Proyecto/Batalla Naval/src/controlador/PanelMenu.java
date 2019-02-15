@@ -2,6 +2,7 @@
 package controlador;
 
 import java.applet.AudioClip;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -62,6 +63,7 @@ public class PanelMenu extends JPanel{
         
         this.jugarMensaje.setBounds(630, 143, 50, 25);             
         this.jugarMensaje.setText("Jugar");
+        this.jugarMensaje.setForeground(Color.yellow);
         
         this.jugar.setBounds(600, 165, 100, 50);
         this.jugar.setOpaque(true);
@@ -75,6 +77,7 @@ public class PanelMenu extends JPanel{
         
         this.acercaDeMensaje.setBounds(620, 217, 100, 25);             
         this.acercaDeMensaje.setText("Acerca De");
+        this.acercaDeMensaje.setForeground(Color.yellow);
 
         
         this.acercaDe.setBounds(600, 242, 100, 50);
@@ -90,6 +93,7 @@ public class PanelMenu extends JPanel{
         
         this.ayudaMensaje.setBounds(630, 294, 100, 25);             
         this.ayudaMensaje.setText("Ayuda");
+        this.ayudaMensaje.setForeground(Color.yellow);
         
         this.ayuda.setBounds(600, 321, 100, 50);
         this.ayuda.setOpaque(true);
@@ -101,8 +105,18 @@ public class PanelMenu extends JPanel{
         this.add(ayudaMensaje);
         this.add(ayuda);
         
-        this.salir.setBounds(600, 340, 100, 50);
-        this.salir.setText("Salir");
+        this.salirMensaje.setBounds(635, 373, 100, 25);             
+        this.salirMensaje.setText("Salir");
+        this.salirMensaje.setForeground(Color.yellow);
+        
+        this.salir.setBounds(600, 398, 100, 50);
+        this.salir.setOpaque(true);
+        this.salir.setContentAreaFilled(false);
+        this.salir.setIcon(new ImageIcon(iconBotonesMenu.getImage()
+                .getScaledInstance(salir.getWidth()
+                        , salir.getHeight(), Image.SCALE_SMOOTH))); 
+        
+        this.add(salirMensaje);
         this.add(salir);
     }
 }

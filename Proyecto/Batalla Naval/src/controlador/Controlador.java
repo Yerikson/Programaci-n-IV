@@ -38,7 +38,6 @@ public class Controlador {
     public void iniciarJuego(){
         
         ajustesVentana();
-        //agregarPanelesConSusMatrices();
         eventosBotonesMenu();
         this.ventanaJuego.agregarPanel(menuNuevo);
         
@@ -53,6 +52,7 @@ public class Controlador {
     }
     
     public void eventosBotonesMenu(){
+        
         ActionListener botonJugar = new ActionListener() {                                   
             
             @Override
@@ -64,5 +64,17 @@ public class Controlador {
             }
         };
         this.menuNuevo.jugar.addActionListener(botonJugar);
+        
+        
+        ActionListener botonSalir = new ActionListener() {                                   
+            
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                System.exit(0);
+                
+            }
+        };
+        this.menuNuevo.salir.addActionListener(botonJugar);
+        
     }
 }
