@@ -1,9 +1,12 @@
 
 package controlador;
 
-import java.awt.Dimension;
-import modelo.Casilla;
-import modelo.Juego1;
+
+
+
+import java.applet.AudioClip;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import modelo.PanelJugador;
 import vista.VentanaPrincipal;
 
@@ -16,8 +19,7 @@ public class Controlador {
     private VentanaPrincipal ventanaJuego;
     private PanelJugador panelUsuario = new PanelJugador(0);
     private PanelJugador panelMaquina = new PanelJugador(1);
-    private Casilla [] [] matrizCasillasUsuario = new Casilla [15] [15];
-    private Juego1 nuevoJuego1 = new Juego1();
+    private PanelMenu menuNuevo = new PanelMenu();
     
     public Controlador(VentanaPrincipal ventanaJuego) {
         
@@ -36,8 +38,9 @@ public class Controlador {
     public void iniciarJuego(){
         
         ajustesVentana();
-        agregarPanelesConSusMatrices();
-        
+        //agregarPanelesConSusMatrices();
+        eventosBotonesMenu();
+        this.ventanaJuego.agregarPanel(menuNuevo);
         
     }
     
@@ -49,4 +52,17 @@ public class Controlador {
         this.ventanaJuego.agregarPanel(panelMaquina);
     }
     
+    public void eventosBotonesMenu(){
+        ActionListener botonJugar = new ActionListener() {                                   
+            
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                menuNuevo.sonidoMenu.stop();
+                menuNuevo.setVisible(false);
+                agregarPanelesConSusMatrices();
+                
+            }
+        };
+        this.menuNuevo.jugar.addActionListener(botonJugar);
+    }
 }
