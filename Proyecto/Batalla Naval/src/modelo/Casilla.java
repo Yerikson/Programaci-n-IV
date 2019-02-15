@@ -16,9 +16,19 @@ import javax.swing.JButton;
  * @author USER
  */
 public class Casilla extends JButton{    
- 
+    
+    private int ancho;
+    private int alto;
     private int contenidoCasilla;
     private ImageIcon barcoPequeño = new ImageIcon("BarcoPequeñoVertical.png");
+
+    public int getAncho() {
+        return ancho;
+    }
+
+    public int getAlto() {
+        return alto;
+    }
 
     public ImageIcon getBarcoPequeño() {
         return barcoPequeño;
@@ -27,10 +37,12 @@ public class Casilla extends JButton{
     public Casilla() {
                 
         this.setBackground(Color.yellow);
-        this.setOpaque(false);
+        this.ancho = 42;
+        this.alto = 44;
+        this.setOpaque(false);        
         this.setContentAreaFilled(false);
         this.setBorderPainted(true);       
-        agregarOyente();
+        //agregarOyente();
     }
 
     public void agregarOyente(){

@@ -54,7 +54,45 @@ public class PanelJugador extends JPanel{
         this.repaint();
     }
     
+    ///
+    //public void crarY
+    public void icondefectoMar(){
+        
+        Casilla [] [] iconMarMatriz = new Casilla [15] [15];
+        
+        for (int i = 0; i < 15; i++) {
+            
+            for (int j = 0; j < 15; j++) {
+                
+                Casilla auxCasilla1 = new Casilla();
+                auxCasilla1.setSize(auxCasilla1.getAncho()
+                        , auxCasilla1.getAlto());
+                iconMarMatriz [i][j] = auxCasilla1;
+                iconMarMatriz [i][j].setIcon(new ImageIcon(auxCasilla1.getBarcoPequeño().getImage()
+                        .getScaledInstance(42, 44, Image.SCALE_SMOOTH)));    
+                iconMarMatriz [i][j].setContenidoCasilla(0);
+                iconMarMatriz [i][j].agregarOyente();
+                
+            }
+            
+        }
+        agregarMatriz(iconMarMatriz);
+        
+    }
     
+    public void agregarMatriz(Casilla [] [] iconMarMatriz){
+        
+        for (int i = 0; i < 15; i++) {
+            
+            for (int j = 0; j < 15; j++) {
+                this.add(iconMarMatriz[i][j]);
+                this.repintarPanel();
+            }
+        }
+        
+    }
+    
+    /*
     public void agregarMatriz1(){
         
         Casilla [] [] nuevaMatriz = new Casilla [15] [15];
@@ -75,5 +113,5 @@ public class PanelJugador extends JPanel{
             }
             
         }
-    }
+    }*/
 }

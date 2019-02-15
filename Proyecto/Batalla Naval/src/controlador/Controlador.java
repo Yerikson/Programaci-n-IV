@@ -46,9 +46,11 @@ public class Controlador {
     
     public void agregarPanelesConSusMatrices(){
         
-        this.panelUsuario.agregarMatriz1();
+        //this.panelUsuario.agregarMatriz1();
+        this.panelUsuario.icondefectoMar();
         this.ventanaJuego.agregarPanel(panelUsuario);
-        this.panelMaquina.agregarMatriz1();
+        this.panelMaquina.icondefectoMar();
+        //this.panelMaquina.agregarMatriz1();
         this.ventanaJuego.agregarPanel(panelMaquina);
     }
     
