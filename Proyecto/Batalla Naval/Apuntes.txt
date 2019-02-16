@@ -1,13 +1,30 @@
 2:47
 0- Mar
+
 1- BarcoPequeño
 2. BarcoPequeñoDestruido
+
 3- BarcoGrandeHorizontalDelante
-4. BarcoGrandeHorizontalatras
-5. BarcoGrandeHorizontalDelanteGolpeado
-6. BarcoGrandeHorizontalatrasGolpeado
-7. BarcoGrandeHorizontalDelanteDestruido
-8. BarcoGrandeHorizontalatrasDestruido
+4. BarcoGrandeHorizontalIntermedio
+5. BarcoGrandeHorizontalAtras
+6. BarcoGrandeHorizontalDelanteGolpeado
+7. BarcoGrandeHorizontalIntermedioGolpeado
+8. BarcoGrandeHorizontalAtrasGolpeado
+9. BarcoGrandeHorizontalDelanteDestruido
+10. BarcoGrandeHorizontalIntermedioDestruido
+11. BarcoGrandeHorizontalAtrasDestruido
+
+12. BarcoGrandeVerticalDelante
+13. BarcoGrandeVerticalIntermedio
+14. BarcoGrandeVerticalAtras
+15. BarcoGrandeVerticalDelanteGolpeado
+16. BarcoGrandeVerticalalIntermedioGolpeado
+17. BarcoGrandeVerticalAtrasGolpeado
+18. BarcoGrandeVerticalDelanteDestruido
+19. BarcoGrandeVerticalIntermedioDestruido
+20. BarcoGrandeVerticalAtrasDestruido
+
+
 
 
 Se puede desactivar la detección del paso del mouse para los botones del

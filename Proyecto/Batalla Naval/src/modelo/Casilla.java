@@ -3,12 +3,13 @@ package modelo;
 
 import java.applet.AudioClip;
 import java.awt.Color;
-import java.awt.Graphics;
+
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import static java.awt.event.MouseEvent.MOUSE_CLICKED;
-import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
@@ -19,6 +20,7 @@ import javax.swing.JButton;
  */
 public class Casilla extends JButton{    
     
+    private AudioClip disparoCañon;
     private AudioClip explosion;
     private int ancho;
     private int alto;
@@ -49,7 +51,14 @@ public class Casilla extends JButton{
     }
 
     public void cambiarIcono(int contenido){
-        
+                
+        disparoCañon = java.applet.Applet.newAudioClip(getClass().getResource("/controlador/DisparoCañon.wav"));
+        disparoCañon.play();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Casilla.class.getName()).log(Level.SEVERE, null, ex);
+        }
         if (contenido == 1) {
             
             this.setIcon(new ImageIcon(barcoPequeñoDestruido.getImage().getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
@@ -75,9 +84,6 @@ public class Casilla extends JButton{
                 }
             }
 
-            /*private void setIcon(ImageIcon imageIcon) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }*/
         };
         this.addMouseListener(oyenteRaton);                
         
