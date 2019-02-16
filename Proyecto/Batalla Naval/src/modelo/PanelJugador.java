@@ -74,7 +74,12 @@ public class PanelJugador extends JPanel{
                 iconMarMatriz [i][j].setIcon(new ImageIcon(auxCasilla1.getBarcoPequeño().getImage()
                         .getScaledInstance(42, 44, Image.SCALE_SMOOTH)));    
                 iconMarMatriz [i][j].setContenidoCasilla(0);
+                if (tipeUser == 0) {
+                    
+                    iconMarMatriz [i][j].setEnabled(false);
+                }
                 if (tipeUser == 1) {
+                    
                     iconMarMatriz [i][j].agregarOyente();
                 }
                 
@@ -86,6 +91,12 @@ public class PanelJugador extends JPanel{
         
     }
     
+    public void ubicarYDistribuirBarcos(Casilla [] [] iconMarMatriz){
+        
+        
+        
+        
+    }
     public void agregarMatriz(Casilla [] [] iconMarMatriz){
         
         for (int i = 0; i < 15; i++) {

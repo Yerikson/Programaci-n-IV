@@ -1,0 +1,14 @@
+2:47
+0- Mar
+1- BarcoPequeño
+2. BarcoPequeñoDestruido
+3- BarcoGrandeHorizontalDelante
+4. BarcoGrandeHorizontalatras
+5. BarcoGrandeHorizontalDelanteGolpeado
+6. BarcoGrandeHorizontalatrasGolpeado
+7. BarcoGrandeHorizontalDelanteDestruido
+8. BarcoGrandeHorizontalatrasDestruido
+
+
+Se puede desactivar la detección del paso del mouse para los botones del
+usuario (que queden opacos) e igual seguirian  
