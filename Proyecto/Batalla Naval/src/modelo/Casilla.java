@@ -52,10 +52,10 @@ public class Casilla extends JButton{
 
     public void cambiarIcono(int contenido){
                 
-        disparoCañon = java.applet.Applet.newAudioClip(getClass().getResource("/controlador/DisparoCañon.wav"));
+        disparoCañon = java.applet.Applet.newAudioClip(getClass().getResource("/controlador/Cañones.wav"));
         disparoCañon.play();
         try {
-            Thread.sleep(2000);
+            Thread.sleep(5000);
         } catch (InterruptedException ex) {
             Logger.getLogger(Casilla.class.getName()).log(Level.SEVERE, null, ex);
         }
