@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 import javax.swing.JOptionPane;
 import modelo.PanelJugador;
+import modelo.PanelRetorno;
 import vista.VentanaPrincipal;
 
 /**
@@ -22,6 +23,7 @@ public class Controlador {
     private VentanaPrincipal ventanaJuego;
     public PanelJugador panelUsuario = new PanelJugador(0);
     public PanelJugador panelMaquina = new PanelJugador(1);
+    public PanelRetorno nuevoPanelR = new PanelRetorno();
     private PanelMenu menuNuevo = new PanelMenu();
     
     public Controlador(VentanaPrincipal ventanaJuego) {
@@ -50,11 +52,14 @@ public class Controlador {
         
         this.panelUsuario.crearMatrizYUbicarBarcos(0, panelUsuario);
         this.ventanaJuego.agregarPanel(panelUsuario);
-        this.panelMaquina.crearMatrizYUbicarBarcos(1, panelUsuario);       
+        this.panelMaquina.crearMatrizYUbicarBarcos(1, panelUsuario);          
         this.ventanaJuego.agregarPanel(panelMaquina);
+        this.ventanaJuego.agregarPanel(nuevoPanelR);
         this.panelMaquina.mostrarNumeroBarcosOcultos();
+        
     }
 
+    
     public void eventosBotonesMenu(){
         
         ActionListener botonJugar = new ActionListener() {                                   

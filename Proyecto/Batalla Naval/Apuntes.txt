@@ -1,7 +1,7 @@
 https://matap.dmae.upm.es/WebpersonalBartolo/EDOs/3_Ecuaciones_diferenciales_orden_superior.pdf
 
 jugador = 0;
-maquina = 0;
+maquina = 1;
 
 horizontal = 0;
 vertical = 1;
