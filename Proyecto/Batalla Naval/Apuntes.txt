@@ -2,8 +2,9 @@ https://matap.dmae.upm.es/WebpersonalBartolo/EDOs/3_Ecuaciones_diferenciales_ord
 
 jugador = 0;
 maquina = 0;
-vertical = 0;
-horizontal = 1;
+
+horizontal = 0;
+vertical = 1;
 
 1. Fallo
 0. Mar

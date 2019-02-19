@@ -223,17 +223,21 @@ public class Casilla extends JButton{
         this.setBorderPainted(true);       
     }
 
-    public void cambiarIcono(int contenido){
-                
-        disparoCañon = java.applet.Applet.newAudioClip(getClass()
+    public void cambiarIcono(int contenido, int tiroNumero){
+            
+        if (tiroNumero == 1) {
+            
+            disparoCañon = java.applet.Applet.newAudioClip(getClass()
                 .getResource("/controlador/Cañones.wav"));
-        disparoCañon.play();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Casilla.class.getName())
-                    .log(Level.SEVERE, null, ex);
+            disparoCañon.play();
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Casilla.class.getName())
+                        .log(Level.SEVERE, null, ex);
+            }
         }
+        
         //Dispararo a una casilla con agua
         if (contenido == 0) {
             
@@ -319,48 +323,8 @@ public class Casilla extends JButton{
             explosion.play();
             
         }
-        
-        
-        
-        
-        
-        
-        
+
     }
-    
-   /* public void agregarOyente(){
-        
-        MouseAdapter oyenteRaton = new MouseAdapter() {
-        
-            public void mouseClicked(MouseEvent e){
-        
-                
-                if (e.getClickCount() == 2) {
-                     
-                    if (contenidoCasilla == 0) {
-                        
-                        cambiarIcono(0); 
-                        System.out.println("Soy La Casilla Número: " + numeroCasilla);
-                    }
-                    if (contenidoCasilla == 1) {
-                        
-                        cambiarIcono(1);                    
-                        System.out.println("Soy La Casilla Número: " + numeroCasilla);
-                        
-                    }
-                    
-                    
-                }
-            }
-
-        };
-        this.addMouseListener(oyenteRaton);                
-        
-    }*/
-    
-    
-
-    
-    
+ 
     
 }

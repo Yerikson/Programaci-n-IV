@@ -27,12 +27,12 @@ public class PanelJugador extends JPanel{
                 
         if (tipoJugador == 0) {
             
-            this.setBounds(10, 5, 630, 660);
+            this.setBounds(0, 1, 600, 665);
 
         
         }else{
             
-            this.setBounds(655, 5, 630, 660);
+            this.setBounds(601, 1, 600, 665);
 
         }
                                   
@@ -58,14 +58,11 @@ public class PanelJugador extends JPanel{
         this.repaint();
     }
     
-    ///
+
     public void crearMatrizYUbicarBarcos(int tipoUsuario){
-       // Casilla [] [] iconMarMatriz = new Casilla [15] [15];
-        //iconDefectoMar(tipoUsuario, iconMarMatriz);
         iconDefectoMar(tipoUsuario);
     }
     
-    //public void iconDefectoMar(int tipeUser, Casilla [] [] iconMarMatriz )
     public void iconDefectoMar(int tipeUser){
         
         int auxNumero = 1;
@@ -77,37 +74,27 @@ public class PanelJugador extends JPanel{
                 Casilla auxCasilla1 = new Casilla();
                 auxCasilla1.setSize(auxCasilla1.getAncho()
                         , auxCasilla1.getAlto());
-                /*
-                iconMarMatriz [i][j] = auxCasilla1;
-                iconMarMatriz [i][j].setNumeroCasilla(auxNumero);                
-                iconMarMatriz [i][j].setContenidoCasilla(0);
-                iconMarMatriz [i][j].setNumeroFila(i);
-                iconMarMatriz [i][j].setNumeroColumna(j);*/
                 
                 barcosMatriz [i][j] = auxCasilla1;
                 barcosMatriz [i][j].setNumeroCasilla(auxNumero);                
                 barcosMatriz [i][j].setContenidoCasilla(0);
                 barcosMatriz [i][j].setNumeroFila(i);
                 barcosMatriz [i][j].setNumeroColumna(j);
-                
-                
+                                
                 auxNumero = auxNumero + 1;
                 if (tipeUser == 1) {
                     
                     agregarOyente1(i,j);     
-                    //barcosMatriz [i][j].agregarOyente();
-                    //iconMarMatriz [i][j].agregarOyente();
+
                 }
-                
-                
+                                
             }
             
         }
         ubicarYDistribuirBarcos();
-        //ubicarYDistribuirBarcos(iconMarMatriz);
         
     }
-    //public void ubicarYDistribuirBarcos(Casilla [] [] barcosMatriz)
+
     public void ubicarYDistribuirBarcos(){
         
         Casilla auxCasilla2 = new Casilla();
@@ -198,11 +185,10 @@ public class PanelJugador extends JPanel{
             
         }
                         
-        //agregarMatriz(barcosMatriz);
         agregarMatriz();
         
     }
-    //public void agregarMatriz(Casilla [] [] iconMarMatriz)
+
     public void agregarMatriz(){
         
         for (int i = 0; i < 15; i++) {
@@ -224,16 +210,15 @@ public class PanelJugador extends JPanel{
                 
                 if (e.getClickCount() == 2) {
                     //Dispararle a una casilla con agua
-                    if (barcosMatriz[fila][columna].getContenidoCasilla() == 0){
-                        
-                        barcosMatriz[fila][columna].cambiarIcono(0);
+                    if (barcosMatriz[fila][columna].getContenidoCasilla() == 0){                        
+                        barcosMatriz[fila][columna].cambiarIcono(0, 1);
                         //cambiarIcono(0); 
                         System.out.println("Soy La Casilla Número: " + barcosMatriz[fila][columna].getNumeroCasilla());
                     }
                     //Dispararle a una casilla con barco pequeño
                     if (barcosMatriz[fila][columna].getContenidoCasilla() == 1){
                         
-                        barcosMatriz[fila][columna].cambiarIcono(1);              
+                        barcosMatriz[fila][columna].cambiarIcono(1, 1);              
                         System.out.println("Soy La Casilla Número: " + barcosMatriz[fila][columna].getNumeroCasilla());
                         
                     }
@@ -242,11 +227,11 @@ public class PanelJugador extends JPanel{
                         
                         if (barcosMatriz[fila][columna + 1].getContenidoCasilla() == 6) {
                             
-                            barcosMatriz[fila][columna].cambiarIcono(5);  
-                            barcosMatriz[fila][columna + 1].cambiarIcono(6);
+                            barcosMatriz[fila][columna].cambiarIcono(5, 1);  
+                            barcosMatriz[fila][columna + 1].cambiarIcono(6, 2);
                             System.out.println("Soy La Casilla Número: " + barcosMatriz[fila][columna].getNumeroCasilla());
                         } else {
-                            barcosMatriz[fila][columna].cambiarIcono(3);
+                            barcosMatriz[fila][columna].cambiarIcono(3, 1);
                         }                        
                     }
                     //Dispararle a una casilla con la parte delantera barco grande horizontal
@@ -254,11 +239,11 @@ public class PanelJugador extends JPanel{
                         
                         if (barcosMatriz[fila][columna - 1].getContenidoCasilla() == 5) {
                             
-                            barcosMatriz[fila][columna].cambiarIcono(6);  
-                            barcosMatriz[fila][columna - 1].cambiarIcono(5);
+                            barcosMatriz[fila][columna].cambiarIcono(6, 1);  
+                            barcosMatriz[fila][columna - 1].cambiarIcono(5, 2);
                             System.out.println("Soy La Casilla Número: " + barcosMatriz[fila][columna].getNumeroCasilla());
                         } else {
-                            barcosMatriz[fila][columna].cambiarIcono(4);
+                            barcosMatriz[fila][columna].cambiarIcono(4, 1);
                         }                        
                     }
                     

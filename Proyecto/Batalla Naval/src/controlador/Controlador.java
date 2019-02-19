@@ -4,6 +4,7 @@ package controlador;
 
 
 
+import modelo.PanelMenu;
 import java.applet.AudioClip;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,7 +30,7 @@ public class Controlador {
     
     public void ajustesVentana(){
         
-        this.ventanaJuego.setSize(1300, 700);
+        this.ventanaJuego.setSize(1350, 700);
         this.ventanaJuego.setTitle("BATALLA NAVAL");
         this.ventanaJuego.setResizable(false);
         this.ventanaJuego.setLocationRelativeTo(null);              
@@ -51,7 +52,7 @@ public class Controlador {
         this.panelMaquina.crearMatrizYUbicarBarcos(1);       
         this.ventanaJuego.agregarPanel(panelMaquina);
     }
-    
+
     public void eventosBotonesMenu(){
         
         ActionListener botonJugar = new ActionListener() {                                   
