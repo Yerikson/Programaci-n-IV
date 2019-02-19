@@ -567,7 +567,165 @@ public class PanelJugador extends JPanel{
                         }                        
                     }
                     
+
+                    //Dispararle a una casilla con la parte trasera barco Enorme horizontal
+                    if (barcosMatriz[fila][columna].getContenidoCasilla() == 33){
+                        
+                        if (barcosMatriz[fila][columna + 1]
+                                .getContenidoCasilla() == 38
+                                && barcosMatriz[fila][columna + 2]
+                                        .getContenidoCasilla() == 39
+                                && barcosMatriz[fila][columna + 3]
+                                        .getContenidoCasilla() == 40) {
+                            
+                            barcosMatriz[fila][columna].cambiarIcono(37, 1);  
+                            barcosMatriz[fila][columna + 1].cambiarIcono(38, 2);
+                            barcosMatriz[fila][columna + 2].cambiarIcono(39, 2);
+                            barcosMatriz[fila][columna + 3].cambiarIcono(40, 2);
+                           
+                        } else {
+                            barcosMatriz[fila][columna].cambiarIcono(33, 1);
+                        }                        
+                    }
+                    //Dispararle a una casilla con la parte media 1 barco Enorme horizontal
+                    if (barcosMatriz[fila][columna].getContenidoCasilla() == 34){
+                        
+                        if (barcosMatriz[fila][columna - 1]
+                                .getContenidoCasilla() == 37
+                                && barcosMatriz[fila][columna + 1]
+                                        .getContenidoCasilla() == 39
+                                && barcosMatriz[fila][columna + 2]
+                                        .getContenidoCasilla() == 40) {
+                            
+                            barcosMatriz[fila][columna].cambiarIcono(38, 1);  
+                            barcosMatriz[fila][columna - 1].cambiarIcono(37, 2);
+                            barcosMatriz[fila][columna + 1].cambiarIcono(39, 2);
+                            barcosMatriz[fila][columna + 2].cambiarIcono(40, 2);
+                            
+                        } else {
+                            barcosMatriz[fila][columna].cambiarIcono(34, 1);
+                        }                        
+                    }
                     
+                    //Dispararle a una casilla con la parte media 2 barco Enorme horizontal
+                    if (barcosMatriz[fila][columna].getContenidoCasilla() == 35){
+                        
+                        if (barcosMatriz[fila][columna - 1]
+                                .getContenidoCasilla() == 38
+                                && barcosMatriz[fila][columna + 1]
+                                        .getContenidoCasilla() == 40
+                                && barcosMatriz[fila][columna - 2]
+                                        .getContenidoCasilla() == 37) {
+                            
+                            barcosMatriz[fila][columna].cambiarIcono(39, 1);  
+                            barcosMatriz[fila][columna - 1].cambiarIcono(38, 2);
+                            barcosMatriz[fila][columna + 1].cambiarIcono(40, 2);
+                            barcosMatriz[fila][columna - 2].cambiarIcono(37, 2);
+                            
+                        } else {
+                            barcosMatriz[fila][columna].cambiarIcono(35, 1);
+                        }                        
+                    }
+                    
+                    //Dispararle a una casilla con la parte delantera barco Enorme horizontal
+                    if (barcosMatriz[fila][columna].getContenidoCasilla() == 36){
+                        
+                        if (barcosMatriz[fila][columna - 1]
+                                .getContenidoCasilla() == 39
+                                && barcosMatriz[fila][columna - 2]
+                                        .getContenidoCasilla() == 38
+                                && barcosMatriz[fila][columna - 3]
+                                        .getContenidoCasilla() == 37) {
+                            
+                            barcosMatriz[fila][columna].cambiarIcono(40, 1);  
+                            barcosMatriz[fila][columna - 1].cambiarIcono(39, 2);
+                            barcosMatriz[fila][columna - 2].cambiarIcono(38, 2);
+                            barcosMatriz[fila][columna - 3].cambiarIcono(37, 2);
+                            
+                        } else {
+                            barcosMatriz[fila][columna].cambiarIcono(36, 1);
+                        }                        
+                    }
+                    
+                    ///COPIA
+                    //Dispararle a una casilla con la parte trasera barco Enorme Vertical
+                    if (barcosMatriz[fila][columna].getContenidoCasilla() == 45){
+                        
+                        if (barcosMatriz[fila + 1][columna]
+                                .getContenidoCasilla() == 50
+                                && barcosMatriz[fila + 2][columna]
+                                        .getContenidoCasilla() == 51
+                                && barcosMatriz[fila + 3][columna]
+                                        .getContenidoCasilla() == 52) {
+                            
+                            barcosMatriz[fila][columna].cambiarIcono(49, 1);  
+                            barcosMatriz[fila + 1][columna].cambiarIcono(50, 2);
+                            barcosMatriz[fila + 2][columna].cambiarIcono(51, 2);
+                            barcosMatriz[fila + 3][columna].cambiarIcono(52, 2);
+                           
+                        } else {
+                            barcosMatriz[fila][columna].cambiarIcono(45, 1);
+                        }                        
+                    }
+                    //Dispararle a una casilla con la parte media 1 barco Enorme vertical
+                    if (barcosMatriz[fila][columna].getContenidoCasilla() == 46){
+                        
+                        if (barcosMatriz[fila - 1][columna]
+                                .getContenidoCasilla() == 49
+                                && barcosMatriz[fila + 1][columna]
+                                        .getContenidoCasilla() == 51
+                                && barcosMatriz[fila + 2][columna]
+                                        .getContenidoCasilla() == 52) {
+                            
+                            barcosMatriz[fila][columna].cambiarIcono(50, 1);  
+                            barcosMatriz[fila - 1][columna].cambiarIcono(49, 2);
+                            barcosMatriz[fila + 1][columna].cambiarIcono(51, 2);
+                            barcosMatriz[fila + 2][columna].cambiarIcono(52, 2);
+                            
+                        } else {
+                            barcosMatriz[fila][columna].cambiarIcono(46, 1);
+                        }                        
+                    }
+                    
+                    //Dispararle a una casilla con la parte media 2 barco Enorme vertical
+                    if (barcosMatriz[fila][columna].getContenidoCasilla() == 47){
+                        
+                        if (barcosMatriz[fila - 1][columna]
+                                .getContenidoCasilla() == 50
+                                && barcosMatriz[fila + 1][columna]
+                                        .getContenidoCasilla() == 52
+                                && barcosMatriz[fila - 2][columna]
+                                        .getContenidoCasilla() == 49) {
+                            
+                            barcosMatriz[fila][columna].cambiarIcono(51, 1);  
+                            barcosMatriz[fila - 1][columna].cambiarIcono(50, 2);
+                            barcosMatriz[fila + 1][columna].cambiarIcono(52, 2);
+                            barcosMatriz[fila - 2][columna].cambiarIcono(49, 2);
+                            
+                        } else {
+                            barcosMatriz[fila][columna].cambiarIcono(47, 1);
+                        }                        
+                    }
+                    
+                    //Dispararle a una casilla con la parte delantera barco Enorme vertical
+                    if (barcosMatriz[fila][columna].getContenidoCasilla() == 48){
+                        
+                        if (barcosMatriz[fila - 1][columna]
+                                .getContenidoCasilla() == 51
+                                && barcosMatriz[fila - 2][columna]
+                                        .getContenidoCasilla() == 50
+                                && barcosMatriz[fila - 3][columna]
+                                        .getContenidoCasilla() == 49) {
+                            
+                            barcosMatriz[fila][columna].cambiarIcono(52, 1);  
+                            barcosMatriz[fila][columna - 1].cambiarIcono(51, 2);
+                            barcosMatriz[fila][columna - 2].cambiarIcono(50, 2);
+                            barcosMatriz[fila][columna - 3].cambiarIcono(49, 2);
+                            
+                        } else {
+                            barcosMatriz[fila][columna].cambiarIcono(48, 1);
+                        }                        
+                    }
                 }
             }
 
