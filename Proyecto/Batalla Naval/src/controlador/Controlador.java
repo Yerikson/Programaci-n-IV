@@ -48,9 +48,9 @@ public class Controlador {
     
     public void agregarPanelesConSusMatrices(){
         
-        this.panelUsuario.crearMatrizYUbicarBarcos(0);
+        this.panelUsuario.crearMatrizYUbicarBarcos(0, panelUsuario);
         this.ventanaJuego.agregarPanel(panelUsuario);
-        this.panelMaquina.crearMatrizYUbicarBarcos(1);       
+        this.panelMaquina.crearMatrizYUbicarBarcos(1, panelUsuario);       
         this.ventanaJuego.agregarPanel(panelMaquina);
         this.panelMaquina.mostrarNumeroBarcosOcultos();
     }
@@ -122,11 +122,7 @@ public class Controlador {
         
     }
     
-    public void ataqueMaquina(){
-        
-        Random fila2 = new Random();
-        Random Columna2 = new Random();
-    }
+    
 
     
 }

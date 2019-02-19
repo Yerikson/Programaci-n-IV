@@ -7,6 +7,8 @@ import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -17,7 +19,6 @@ import javax.swing.JPanel;
  */
 public class PanelJugador extends JPanel{   
     private int totalBarcosJugador = 13;
-    private int totalBarcosMaquina = 13;
     private int barcosPequeños = 6;
     private int barcosGrandesH = 0;
     private int barcosGrandesV = 0;
@@ -68,11 +69,11 @@ public class PanelJugador extends JPanel{
     }
     
 
-    public void crearMatrizYUbicarBarcos(int tipoUsuario){
-        iconDefectoMar(tipoUsuario);
+    public void crearMatrizYUbicarBarcos(int tipoUsuario, PanelJugador aux){
+        iconDefectoMar(tipoUsuario, aux);
     }
     
-    public void iconDefectoMar(int tipeUser){
+    public void iconDefectoMar(int tipeUser, PanelJugador aux){
         
         int auxNumero = 1;
         
@@ -93,7 +94,7 @@ public class PanelJugador extends JPanel{
                 auxNumero = auxNumero + 1;
                 if (tipeUser == 1) {
                     
-                    agregarOyente1(i,j);     
+                    agregarOyente1(i,j,aux);     
 
                 }
                                 
@@ -447,7 +448,7 @@ public class PanelJugador extends JPanel{
         
     }
     
-       public void agregarOyente1(int fila, int columna){
+       public void agregarOyente1(int fila, int columna, PanelJugador i){
         
         MouseAdapter oyenteRaton = new MouseAdapter() {
         
@@ -455,6 +456,7 @@ public class PanelJugador extends JPanel{
         
                 
                 if (e.getClickCount() == 2) {
+                    
                     //Dispararle a una casilla con agua
                     if (barcosMatriz[fila][columna].getContenidoCasilla() == 0){                        
                        
@@ -465,6 +467,7 @@ public class PanelJugador extends JPanel{
                     //Dispararle a una casilla con barco pequeño
                     if (barcosMatriz[fila][columna].getContenidoCasilla() == 1){
                         
+                        totalBarcosJugador -= 1;
                         barcosMatriz[fila][columna].cambiarIcono(1, 1);              
                        
                         
@@ -476,7 +479,7 @@ public class PanelJugador extends JPanel{
                             
                             barcosMatriz[fila][columna].cambiarIcono(5, 1);  
                             barcosMatriz[fila][columna + 1].cambiarIcono(6, 2);
-                           
+                            totalBarcosJugador -= 1;
                         } else {
                             barcosMatriz[fila][columna].cambiarIcono(3, 1);
                         }                        
@@ -488,7 +491,7 @@ public class PanelJugador extends JPanel{
                             
                             barcosMatriz[fila][columna].cambiarIcono(6, 1);  
                             barcosMatriz[fila][columna - 1].cambiarIcono(5, 2);
-                            
+                            totalBarcosJugador -= 1;
                         } else {
                             barcosMatriz[fila][columna].cambiarIcono(4, 1);
                         }                        
@@ -502,7 +505,7 @@ public class PanelJugador extends JPanel{
                             
                             barcosMatriz[fila][columna].cambiarIcono(11, 1);  
                             barcosMatriz[fila + 1][columna].cambiarIcono(12, 2);
-                           
+                            totalBarcosJugador -= 1;
                         } else {
                             barcosMatriz[fila][columna].cambiarIcono(9, 1);
                         }                        
@@ -514,7 +517,7 @@ public class PanelJugador extends JPanel{
                             
                             barcosMatriz[fila][columna].cambiarIcono(12, 1);  
                             barcosMatriz[fila - 1][columna].cambiarIcono(11, 2);
-                            
+                            totalBarcosJugador -= 1;
                         } else {
                             barcosMatriz[fila][columna].cambiarIcono(10, 1);
                         }                        
@@ -531,7 +534,7 @@ public class PanelJugador extends JPanel{
                             barcosMatriz[fila][columna].cambiarIcono(18, 1);  
                             barcosMatriz[fila][columna + 1].cambiarIcono(19, 2);
                             barcosMatriz[fila][columna + 2].cambiarIcono(20, 2);
-                           
+                            totalBarcosJugador -= 1;
                         } else {
                             barcosMatriz[fila][columna].cambiarIcono(15, 1);
                         }                        
@@ -547,7 +550,7 @@ public class PanelJugador extends JPanel{
                             barcosMatriz[fila][columna].cambiarIcono(19, 1);  
                             barcosMatriz[fila][columna - 1].cambiarIcono(18, 2);
                             barcosMatriz[fila][columna + 1].cambiarIcono(20, 2);
-                            
+                            totalBarcosJugador -= 1;
                         } else {
                             barcosMatriz[fila][columna].cambiarIcono(16, 1);
                         }                        
@@ -563,7 +566,7 @@ public class PanelJugador extends JPanel{
                             barcosMatriz[fila][columna].cambiarIcono(20, 1);  
                             barcosMatriz[fila][columna - 1].cambiarIcono(19, 2);
                             barcosMatriz[fila][columna - 2].cambiarIcono(18, 2);
-                            
+                            totalBarcosJugador -= 1;
                         } else {
                             barcosMatriz[fila][columna].cambiarIcono(17, 1);
                         }                        
@@ -580,7 +583,7 @@ public class PanelJugador extends JPanel{
                             barcosMatriz[fila][columna].cambiarIcono(27, 1);  
                             barcosMatriz[fila + 1][columna].cambiarIcono(28, 2);
                             barcosMatriz[fila + 2][columna].cambiarIcono(29, 2);
-                           
+                            totalBarcosJugador -= 1;
                         } else {
                             barcosMatriz[fila][columna].cambiarIcono(24, 1);
                         }                        
@@ -596,7 +599,7 @@ public class PanelJugador extends JPanel{
                             barcosMatriz[fila][columna].cambiarIcono(28, 1);  
                             barcosMatriz[fila - 1][columna].cambiarIcono(27, 2);
                             barcosMatriz[fila + 1][columna].cambiarIcono(29, 2);
-                            
+                            totalBarcosJugador -= 1;
                         } else {
                             barcosMatriz[fila][columna].cambiarIcono(25, 1);
                         }                        
@@ -612,7 +615,7 @@ public class PanelJugador extends JPanel{
                             barcosMatriz[fila][columna].cambiarIcono(29, 1);  
                             barcosMatriz[fila - 1][columna].cambiarIcono(28, 2);
                             barcosMatriz[fila - 2][columna].cambiarIcono(27, 2);
-                            
+                            totalBarcosJugador -= 1;
                         } else {
                             barcosMatriz[fila][columna].cambiarIcono(26, 1);
                         }                        
@@ -633,7 +636,7 @@ public class PanelJugador extends JPanel{
                             barcosMatriz[fila][columna + 1].cambiarIcono(38, 2);
                             barcosMatriz[fila][columna + 2].cambiarIcono(39, 2);
                             barcosMatriz[fila][columna + 3].cambiarIcono(40, 2);
-                           
+                            totalBarcosJugador -= 1;
                         } else {
                             barcosMatriz[fila][columna].cambiarIcono(33, 1);
                         }                        
@@ -652,7 +655,7 @@ public class PanelJugador extends JPanel{
                             barcosMatriz[fila][columna - 1].cambiarIcono(37, 2);
                             barcosMatriz[fila][columna + 1].cambiarIcono(39, 2);
                             barcosMatriz[fila][columna + 2].cambiarIcono(40, 2);
-                            
+                            totalBarcosJugador -= 1;
                         } else {
                             barcosMatriz[fila][columna].cambiarIcono(34, 1);
                         }                        
@@ -672,7 +675,7 @@ public class PanelJugador extends JPanel{
                             barcosMatriz[fila][columna - 1].cambiarIcono(38, 2);
                             barcosMatriz[fila][columna + 1].cambiarIcono(40, 2);
                             barcosMatriz[fila][columna - 2].cambiarIcono(37, 2);
-                            
+                            totalBarcosJugador -= 1;
                         } else {
                             barcosMatriz[fila][columna].cambiarIcono(35, 1);
                         }                        
@@ -692,7 +695,7 @@ public class PanelJugador extends JPanel{
                             barcosMatriz[fila][columna - 1].cambiarIcono(39, 2);
                             barcosMatriz[fila][columna - 2].cambiarIcono(38, 2);
                             barcosMatriz[fila][columna - 3].cambiarIcono(37, 2);
-                            
+                            totalBarcosJugador -= 1;
                         } else {
                             barcosMatriz[fila][columna].cambiarIcono(36, 1);
                         }                        
@@ -712,7 +715,7 @@ public class PanelJugador extends JPanel{
                             barcosMatriz[fila + 1][columna].cambiarIcono(50, 2);
                             barcosMatriz[fila + 2][columna].cambiarIcono(51, 2);
                             barcosMatriz[fila + 3][columna].cambiarIcono(52, 2);
-                           
+                            totalBarcosJugador -= 1;
                         } else {
                             barcosMatriz[fila][columna].cambiarIcono(45, 1);
                         }                        
@@ -731,7 +734,7 @@ public class PanelJugador extends JPanel{
                             barcosMatriz[fila - 1][columna].cambiarIcono(49, 2);
                             barcosMatriz[fila + 1][columna].cambiarIcono(51, 2);
                             barcosMatriz[fila + 2][columna].cambiarIcono(52, 2);
-                            
+                            totalBarcosJugador -= 1;
                         } else {
                             barcosMatriz[fila][columna].cambiarIcono(46, 1);
                         }                        
@@ -751,7 +754,7 @@ public class PanelJugador extends JPanel{
                             barcosMatriz[fila - 1][columna].cambiarIcono(50, 2);
                             barcosMatriz[fila + 1][columna].cambiarIcono(52, 2);
                             barcosMatriz[fila - 2][columna].cambiarIcono(49, 2);
-                            
+                            totalBarcosJugador -= 1;
                         } else {
                             barcosMatriz[fila][columna].cambiarIcono(47, 1);
                         }                        
@@ -771,10 +774,16 @@ public class PanelJugador extends JPanel{
                             barcosMatriz[fila][columna - 1].cambiarIcono(51, 2);
                             barcosMatriz[fila][columna - 2].cambiarIcono(50, 2);
                             barcosMatriz[fila][columna - 3].cambiarIcono(49, 2);
-                            
+                            totalBarcosJugador -= 1;
                         } else {
                             barcosMatriz[fila][columna].cambiarIcono(48, 1);
                         }                        
+                    }
+
+                    i.ataqueMaquina(i);
+                    if (totalBarcosJugador == 0) {
+                        JOptionPane.showMessageDialog(null,"Juego Finalizado"
+                                + "\nHaz Ganado");
                     }
                 }
             }
@@ -784,8 +793,19 @@ public class PanelJugador extends JPanel{
         
     }
        
-    public void disparoMaquina(int fila, int columna){
-
+       
+    public void ataqueMaquina(PanelJugador i){        
+        
+        Random fila2 = new Random();
+        Random columna2 = new Random();
+        
+        int fila1 = fila2.nextInt(15);
+        int columna1 = columna2.nextInt(15);
+        disparoMaquina(fila1, columna1, i);
+        
+    }
+    public void disparoMaquina(int fila, int columna, PanelJugador i){
+        
         //Dispararle a una casilla con agua
         if (barcosMatriz[fila][columna].getContenidoCasilla() == 0){                        
 
@@ -794,7 +814,8 @@ public class PanelJugador extends JPanel{
         //Dispararle a una casilla con barco pequeño
         if (barcosMatriz[fila][columna].getContenidoCasilla() == 1){
 
-            barcosMatriz[fila][columna].cambiarIcono(1, 1);              
+            barcosMatriz[fila][columna].cambiarIcono(1, 1);  
+            i.totalBarcosJugador -= 1;
         }
         //Dispararle a una casilla con la parte trasera barco grande horizontal
         if (barcosMatriz[fila][columna].getContenidoCasilla() == 3){
@@ -803,6 +824,7 @@ public class PanelJugador extends JPanel{
 
                 barcosMatriz[fila][columna].cambiarIcono(5, 1);  
                 barcosMatriz[fila][columna + 1].cambiarIcono(6, 2);
+                i.totalBarcosJugador -= 1;
             } else {
                 barcosMatriz[fila][columna].cambiarIcono(3, 1);
             }                        
@@ -814,6 +836,7 @@ public class PanelJugador extends JPanel{
 
                 barcosMatriz[fila][columna].cambiarIcono(6, 1);  
                 barcosMatriz[fila][columna - 1].cambiarIcono(5, 2);
+                i.totalBarcosJugador -= 1;
 
             } else {
                 barcosMatriz[fila][columna].cambiarIcono(4, 1);
@@ -828,6 +851,7 @@ public class PanelJugador extends JPanel{
 
                 barcosMatriz[fila][columna].cambiarIcono(11, 1);  
                 barcosMatriz[fila + 1][columna].cambiarIcono(12, 2);
+                i.totalBarcosJugador -= 1;
 
             } else {
                 barcosMatriz[fila][columna].cambiarIcono(9, 1);
@@ -840,6 +864,7 @@ public class PanelJugador extends JPanel{
 
                 barcosMatriz[fila][columna].cambiarIcono(12, 1);  
                 barcosMatriz[fila - 1][columna].cambiarIcono(11, 2);
+                i.totalBarcosJugador -= 1;
 
             } else {
                 barcosMatriz[fila][columna].cambiarIcono(10, 1);
@@ -857,6 +882,7 @@ public class PanelJugador extends JPanel{
                 barcosMatriz[fila][columna].cambiarIcono(18, 1);  
                 barcosMatriz[fila][columna + 1].cambiarIcono(19, 2);
                 barcosMatriz[fila][columna + 2].cambiarIcono(20, 2);
+                i.totalBarcosJugador -= 1;
 
             } else {
                 barcosMatriz[fila][columna].cambiarIcono(15, 1);
@@ -873,6 +899,7 @@ public class PanelJugador extends JPanel{
                 barcosMatriz[fila][columna].cambiarIcono(19, 1);  
                 barcosMatriz[fila][columna - 1].cambiarIcono(18, 2);
                 barcosMatriz[fila][columna + 1].cambiarIcono(20, 2);
+                i.totalBarcosJugador -= 1;
 
             } else {
                 barcosMatriz[fila][columna].cambiarIcono(16, 1);
@@ -889,6 +916,7 @@ public class PanelJugador extends JPanel{
                 barcosMatriz[fila][columna].cambiarIcono(20, 1);  
                 barcosMatriz[fila][columna - 1].cambiarIcono(19, 2);
                 barcosMatriz[fila][columna - 2].cambiarIcono(18, 2);
+                i.totalBarcosJugador -= 1;
 
             } else {
                 barcosMatriz[fila][columna].cambiarIcono(17, 1);
@@ -906,6 +934,7 @@ public class PanelJugador extends JPanel{
                 barcosMatriz[fila][columna].cambiarIcono(27, 1);  
                 barcosMatriz[fila + 1][columna].cambiarIcono(28, 2);
                 barcosMatriz[fila + 2][columna].cambiarIcono(29, 2);
+                i.totalBarcosJugador -= 1;
 
             } else {
                 barcosMatriz[fila][columna].cambiarIcono(24, 1);
@@ -922,6 +951,7 @@ public class PanelJugador extends JPanel{
                 barcosMatriz[fila][columna].cambiarIcono(28, 1);  
                 barcosMatriz[fila - 1][columna].cambiarIcono(27, 2);
                 barcosMatriz[fila + 1][columna].cambiarIcono(29, 2);
+                i.totalBarcosJugador -= 1;
 
             } else {
                 barcosMatriz[fila][columna].cambiarIcono(25, 1);
@@ -938,6 +968,7 @@ public class PanelJugador extends JPanel{
                 barcosMatriz[fila][columna].cambiarIcono(29, 1);  
                 barcosMatriz[fila - 1][columna].cambiarIcono(28, 2);
                 barcosMatriz[fila - 2][columna].cambiarIcono(27, 2);
+                i.totalBarcosJugador -= 1;
 
             } else {
                 barcosMatriz[fila][columna].cambiarIcono(26, 1);
@@ -959,6 +990,7 @@ public class PanelJugador extends JPanel{
                 barcosMatriz[fila][columna + 1].cambiarIcono(38, 2);
                 barcosMatriz[fila][columna + 2].cambiarIcono(39, 2);
                 barcosMatriz[fila][columna + 3].cambiarIcono(40, 2);
+                i.totalBarcosJugador -= 1;
 
             } else {
                 barcosMatriz[fila][columna].cambiarIcono(33, 1);
@@ -978,6 +1010,7 @@ public class PanelJugador extends JPanel{
                 barcosMatriz[fila][columna - 1].cambiarIcono(37, 2);
                 barcosMatriz[fila][columna + 1].cambiarIcono(39, 2);
                 barcosMatriz[fila][columna + 2].cambiarIcono(40, 2);
+                i.totalBarcosJugador -= 1;
 
             } else {
                 barcosMatriz[fila][columna].cambiarIcono(34, 1);
@@ -998,6 +1031,7 @@ public class PanelJugador extends JPanel{
                 barcosMatriz[fila][columna - 1].cambiarIcono(38, 2);
                 barcosMatriz[fila][columna + 1].cambiarIcono(40, 2);
                 barcosMatriz[fila][columna - 2].cambiarIcono(37, 2);
+                i.totalBarcosJugador -= 1;
 
             } else {
                 barcosMatriz[fila][columna].cambiarIcono(35, 1);
@@ -1018,6 +1052,7 @@ public class PanelJugador extends JPanel{
                 barcosMatriz[fila][columna - 1].cambiarIcono(39, 2);
                 barcosMatriz[fila][columna - 2].cambiarIcono(38, 2);
                 barcosMatriz[fila][columna - 3].cambiarIcono(37, 2);
+                i.totalBarcosJugador -= 1;
 
             } else {
                 barcosMatriz[fila][columna].cambiarIcono(36, 1);
@@ -1038,6 +1073,7 @@ public class PanelJugador extends JPanel{
                 barcosMatriz[fila + 1][columna].cambiarIcono(50, 2);
                 barcosMatriz[fila + 2][columna].cambiarIcono(51, 2);
                 barcosMatriz[fila + 3][columna].cambiarIcono(52, 2);
+                i.totalBarcosJugador -= 1;
 
             } else {
                 barcosMatriz[fila][columna].cambiarIcono(45, 1);
@@ -1057,6 +1093,7 @@ public class PanelJugador extends JPanel{
                 barcosMatriz[fila - 1][columna].cambiarIcono(49, 2);
                 barcosMatriz[fila + 1][columna].cambiarIcono(51, 2);
                 barcosMatriz[fila + 2][columna].cambiarIcono(52, 2);
+                i.totalBarcosJugador -= 1;
 
             } else {
                 barcosMatriz[fila][columna].cambiarIcono(46, 1);
@@ -1077,6 +1114,7 @@ public class PanelJugador extends JPanel{
                 barcosMatriz[fila - 1][columna].cambiarIcono(50, 2);
                 barcosMatriz[fila + 1][columna].cambiarIcono(52, 2);
                 barcosMatriz[fila - 2][columna].cambiarIcono(49, 2);
+                i.totalBarcosJugador -= 1;
 
             } else {
                 barcosMatriz[fila][columna].cambiarIcono(47, 1);
@@ -1097,14 +1135,20 @@ public class PanelJugador extends JPanel{
                 barcosMatriz[fila][columna - 1].cambiarIcono(51, 2);
                 barcosMatriz[fila][columna - 2].cambiarIcono(50, 2);
                 barcosMatriz[fila][columna - 3].cambiarIcono(49, 2);
+                i.totalBarcosJugador -= 1;
 
             } else {
                 barcosMatriz[fila][columna].cambiarIcono(48, 1);
             }                        
         }
-
-
+        if (i.totalBarcosJugador == 0) {
+            
+            JOptionPane.showMessageDialog(null," Juego Terminado"
+                    + "\nHaz Perdido");
+        }
     }
+    
+
               
         
     
