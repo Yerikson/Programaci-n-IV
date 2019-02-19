@@ -43,7 +43,7 @@ public class PanelMenu extends JPanel{
         
     private void PreInit() {
         
-        fond = new ImageIcon("FondoMenu.jpg").getImage()
+        fond = new ImageIcon("FondoMenu1.jpeg").getImage()
                 .getScaledInstance(1300, 680, Image.SCALE_SMOOTH);
     }
 
