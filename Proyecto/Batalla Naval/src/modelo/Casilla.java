@@ -267,7 +267,7 @@ public class Casilla extends JButton{
             explosion.play();
             
         }
-        //Disparo a una casilla con parte trasera barco grande 
+        //Disparo a una casilla con parte trasera barco grande horizontal
         if (contenido == 3) {
             this.setIcon(new ImageIcon(barcoGrandeHAG.getImage()
                     .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
@@ -277,7 +277,7 @@ public class Casilla extends JButton{
             disparoAcertado.play();
             
         }
-        //Disparo a una casilla con parte trasera golpeada barco grande 
+        //Disparo a una casilla con parte trasera golpeada barco grande horizontal
         if (contenido == 5) {
             this.setIcon(new ImageIcon(barcoGrandeHAD.getImage()
                     .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
@@ -295,7 +295,7 @@ public class Casilla extends JButton{
             explosion.play();
             
         }
-         //Disparo a una casilla con parte delantera barco grande 
+         //Disparo a una casilla con parte delantera barco grande horizontal
         if (contenido == 4) {
             this.setIcon(new ImageIcon(barcoGrandeHDG.getImage()
                     .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
@@ -305,11 +305,69 @@ public class Casilla extends JButton{
             disparoAcertado.play();
             
         }
-        //Disparo a una casilla con parte Delantera golpeada barco grande 
+        //Disparo a una casilla con parte Delantera golpeada barco grande horizontal
         if (contenido == 6) {
             this.setIcon(new ImageIcon(barcoGrandeHDD.getImage()
                     .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
             this.setContenidoCasilla(8);
+            
+            try {
+            Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+            Logger.getLogger(Casilla.class.getName())
+                    .log(Level.SEVERE, null, ex);
+            }
+            
+            explosion = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/Explosion.wav"));
+            explosion.play();
+            
+        }
+        
+        //copia
+        //Disparo a una casilla con parte trasera barco grande vertical
+        if (contenido == 9) {
+            this.setIcon(new ImageIcon(barcoGrandeVAG.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(11);
+            disparoAcertado = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/GolpeMetalico.wav"));
+            disparoAcertado.play();
+            
+        }
+        //Disparo a una casilla con parte trasera golpeada barco grande vertical
+        if (contenido == 11) {
+            this.setIcon(new ImageIcon(barcoGrandeVAD.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(13);
+            
+            try {
+            Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+            Logger.getLogger(Casilla.class.getName())
+                    .log(Level.SEVERE, null, ex);
+            }
+            
+            explosion = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/Explosion.wav"));
+            explosion.play();
+            
+        }
+         //Disparo a una casilla con parte delantera barco grande vertical
+        if (contenido == 10) {
+            this.setIcon(new ImageIcon(barcoGrandeVDG.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(12);
+            disparoAcertado = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/GolpeMetalico.wav"));
+            disparoAcertado.play();
+            
+        }
+        //Disparo a una casilla con parte Delantera golpeada barco grande vertical
+        if (contenido == 12) {
+            this.setIcon(new ImageIcon(barcoGrandeVDD.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(14);
             
             try {
             Thread.sleep(2000);
