@@ -280,7 +280,7 @@ public class Casilla extends JButton{
                     if (contenidoCasilla == 0) {
                         
                         cambiarIcono(0); 
-                        
+                        System.out.println("Soy La Casilla Número: " + numeroCasilla);
                     }
                     if (contenidoCasilla == 1) {
                         

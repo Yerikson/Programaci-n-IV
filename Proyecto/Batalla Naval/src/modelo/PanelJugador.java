@@ -128,12 +128,58 @@ public class PanelJugador extends JPanel{
             fila = fila1.nextInt(15);
             columna = columna1.nextInt(15);
             
+            //Dirección Horizontal
             if (direccion == 0) {
                 
+                if (barcosMatriz[fila][columna].getContenidoCasilla() == 0 
+                        && columna <= 13 && barcosMatriz[fila][columna + 1]
+                                .getContenidoCasilla() == 0) {
+                    
+                    barcosMatriz [fila][columna]
+                            .setIcon(new ImageIcon(auxCasilla2
+                        .getBarcoGrandeHA().getImage()
+                        .getScaledInstance(42, 44, Image.SCALE_SMOOTH)));
+                   
+                    barcosMatriz [fila][columna].setContenidoCasilla(3);
+                    
+                    barcosMatriz [fila][columna + 1]
+                            .setIcon(new ImageIcon(auxCasilla2
+                        .getBarcoGrandeHD().getImage()
+                        .getScaledInstance(42, 44, Image.SCALE_SMOOTH)));
+                    
+                    barcosMatriz [fila][columna + 1].setContenidoCasilla(4);
+                    
+                    
+                } else {
+                    i = i - 1;
+                }
+                               
             } else {
-            }
-            
-            
+                //Dirección Vertical
+                if (barcosMatriz[fila][columna].getContenidoCasilla() == 0 
+                        && fila <= 13 && barcosMatriz[fila + 1][columna]
+                                .getContenidoCasilla() == 0) {
+                    
+                    barcosMatriz [fila][columna]
+                            .setIcon(new ImageIcon(auxCasilla2
+                        .getBarcoGrandeVA().getImage()
+                        .getScaledInstance(42, 44, Image.SCALE_SMOOTH)));
+                    
+                    barcosMatriz [fila][columna].setContenidoCasilla(9);
+                    
+                    barcosMatriz [fila + 1][columna]
+                            .setIcon(new ImageIcon(auxCasilla2
+                        .getBarcoGrandeVD().getImage()
+                        .getScaledInstance(42, 44, Image.SCALE_SMOOTH)));
+                    
+                    barcosMatriz [fila + 1][columna].setContenidoCasilla(10);
+                    
+                    
+                } else {
+                    i = i - 1;
+                }
+                
+            }                        
             
         }
         
