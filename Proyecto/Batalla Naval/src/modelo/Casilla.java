@@ -324,7 +324,6 @@ public class Casilla extends JButton{
             
         }
         
-        //copia
         //Disparo a una casilla con parte trasera barco grande vertical
         if (contenido == 9) {
             this.setIcon(new ImageIcon(barcoGrandeVAG.getImage()
@@ -368,6 +367,405 @@ public class Casilla extends JButton{
             this.setIcon(new ImageIcon(barcoGrandeVDD.getImage()
                     .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
             this.setContenidoCasilla(14);
+            
+            try {
+            Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+            Logger.getLogger(Casilla.class.getName())
+                    .log(Level.SEVERE, null, ex);
+            }
+            
+            explosion = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/Explosion.wav"));
+            explosion.play();
+            
+        }
+                
+        //Disparo a una casilla con parte trasera barco muy grande horizontal
+        if (contenido == 15) {
+            this.setIcon(new ImageIcon(barcoMuyGrandeHAG.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(18);
+            disparoAcertado = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/GolpeMetalico.wav"));
+            disparoAcertado.play();
+            
+        }
+        //Disparo a una casilla con parte trasera golpeada barco muy grande horizontal
+        if (contenido == 18) {
+            this.setIcon(new ImageIcon(barcoMuyGrandeHAD.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(21);
+            
+            try {
+            Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+            Logger.getLogger(Casilla.class.getName())
+                    .log(Level.SEVERE, null, ex);
+            }
+            
+            explosion = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/Explosion.wav"));
+            explosion.play();            
+        }
+        
+        //Disparo a una casilla con parte media barco muy grande horizontal
+        if (contenido == 16) {
+            this.setIcon(new ImageIcon(barcoMuyGrandeHCG.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(19);
+            disparoAcertado = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/GolpeMetalico.wav"));
+            disparoAcertado.play();
+            
+        }
+        //Disparo a una casilla con parte media golpeada barco muy grande horizontal
+        if (contenido == 19) {
+            this.setIcon(new ImageIcon(barcoMuyGrandeHCD.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(22);
+            
+            try {
+            Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+            Logger.getLogger(Casilla.class.getName())
+                    .log(Level.SEVERE, null, ex);
+            }
+            
+            explosion = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/Explosion.wav"));
+            explosion.play();            
+        }
+        //Disparo a una casilla con parte delantera barco muy grande horizontal
+        if (contenido == 17) {
+            this.setIcon(new ImageIcon(barcoMuyGrandeHDG.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(20);
+            disparoAcertado = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/GolpeMetalico.wav"));
+            disparoAcertado.play();
+            
+        }
+        //Disparo a una casilla con parte Delantera golpeada barco muy grande horizontal
+        if (contenido == 20) {
+            this.setIcon(new ImageIcon(barcoMuyGrandeHDD.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(23);
+            
+            try {
+            Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+            Logger.getLogger(Casilla.class.getName())
+                    .log(Level.SEVERE, null, ex);
+            }
+            
+            explosion = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/Explosion.wav"));
+            explosion.play();
+            
+        }
+        
+        //Disparo a una casilla con parte trasera barco muy grande vertical
+        if (contenido == 24) {
+            this.setIcon(new ImageIcon(barcoMuyGrandeVAG.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(27);
+            disparoAcertado = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/GolpeMetalico.wav"));
+            disparoAcertado.play();
+            
+        }
+        //Disparo a una casilla con parte trasera golpeada barco muy grande vertical
+        if (contenido == 27) {
+            this.setIcon(new ImageIcon(barcoMuyGrandeVAD.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(30);
+            
+            try {
+            Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+            Logger.getLogger(Casilla.class.getName())
+                    .log(Level.SEVERE, null, ex);
+            }
+            
+            explosion = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/Explosion.wav"));
+            explosion.play();            
+        }
+        
+        //Disparo a una casilla con parte media barco muy grande vertical
+        if (contenido == 25) {
+            this.setIcon(new ImageIcon(barcoMuyGrandeVCG.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(28);
+            disparoAcertado = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/GolpeMetalico.wav"));
+            disparoAcertado.play();
+            
+        }
+        //Disparo a una casilla con parte media golpeada barco muy grande vertical
+        if (contenido == 28) {
+            this.setIcon(new ImageIcon(barcoMuyGrandeVCD.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(31);
+            
+            try {
+            Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+            Logger.getLogger(Casilla.class.getName())
+                    .log(Level.SEVERE, null, ex);
+            }
+            
+            explosion = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/Explosion.wav"));
+            explosion.play();            
+        }
+        //Disparo a una casilla con parte delantera barco muy grande vertical
+        if (contenido == 26) {
+            this.setIcon(new ImageIcon(barcoMuyGrandeVDG.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(29);
+            disparoAcertado = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/GolpeMetalico.wav"));
+            disparoAcertado.play();
+            
+        }
+        //Disparo a una casilla con parte Delantera golpeada barco muy grande vertical
+        if (contenido == 29) {
+            this.setIcon(new ImageIcon(barcoMuyGrandeVDD.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(32);
+            
+            try {
+            Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+            Logger.getLogger(Casilla.class.getName())
+                    .log(Level.SEVERE, null, ex);
+            }
+            
+            explosion = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/Explosion.wav"));
+            explosion.play();
+            
+        }
+        
+
+        //Disparo a una casilla con parte trasera barco Enorme horizontal
+        if (contenido == 33) {
+            this.setIcon(new ImageIcon(barcoEnormeHAG.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(37);
+            disparoAcertado = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/GolpeMetalico.wav"));
+            disparoAcertado.play();
+            
+        }
+        //Disparo a una casilla con parte trasera golpeada barco Enorme horizontal
+        if (contenido == 37) {
+            this.setIcon(new ImageIcon(barcoEnormeHAD.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(41);
+            
+            try {
+            Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+            Logger.getLogger(Casilla.class.getName())
+                    .log(Level.SEVERE, null, ex);
+            }
+            
+            explosion = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/Explosion.wav"));
+            explosion.play();            
+        }
+        
+        //Disparo a una casilla con parte media 1 barco Enorme horizontal
+        if (contenido == 34) {
+            this.setIcon(new ImageIcon(barcoEnormeHC1G.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(38);
+            disparoAcertado = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/GolpeMetalico.wav"));
+            disparoAcertado.play();
+            
+        }
+        //Disparo a una casilla con parte media 1 golpeada barco muy grande horizontal
+        if (contenido == 38) {
+            this.setIcon(new ImageIcon(barcoEnormeHC1D.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(42);
+            
+            try {
+            Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+            Logger.getLogger(Casilla.class.getName())
+                    .log(Level.SEVERE, null, ex);
+            }
+            
+            explosion = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/Explosion.wav"));
+            explosion.play();            
+        }
+        
+        //Disparo a una casilla con parte media 2 barco Enorme horizontal
+        if (contenido == 35) {
+            this.setIcon(new ImageIcon(barcoEnormeHC2G.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(39);
+            disparoAcertado = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/GolpeMetalico.wav"));
+            disparoAcertado.play();
+            
+        }
+        //Disparo a una casilla con parte media 2 golpeada barco Enorme horizontal
+        if (contenido == 39) {
+            this.setIcon(new ImageIcon(barcoEnormeHC2D.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(43);
+            
+            try {
+            Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+            Logger.getLogger(Casilla.class.getName())
+                    .log(Level.SEVERE, null, ex);
+            }
+            
+            explosion = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/Explosion.wav"));
+            explosion.play();            
+        }
+        
+        
+        //Disparo a una casilla con parte delantera barco Enorme horizontal
+        if (contenido == 36) {
+            this.setIcon(new ImageIcon(barcoEnormeHDG.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(40);
+            disparoAcertado = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/GolpeMetalico.wav"));
+            disparoAcertado.play();
+            
+        }
+        //Disparo a una casilla con parte Delantera golpeada barco Enorme horizontal
+        if (contenido == 40) {
+            this.setIcon(new ImageIcon(barcoEnormeHDD.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(44);
+            
+            try {
+            Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+            Logger.getLogger(Casilla.class.getName())
+                    .log(Level.SEVERE, null, ex);
+            }
+            
+            explosion = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/Explosion.wav"));
+            explosion.play();
+            
+        }
+        
+        //Copia
+        
+        //Disparo a una casilla con parte trasera barco Enorme vertical
+        if (contenido == 45) {
+            this.setIcon(new ImageIcon(barcoEnormeVAG.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(49);
+            disparoAcertado = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/GolpeMetalico.wav"));
+            disparoAcertado.play();
+            
+        }
+        //Disparo a una casilla con parte trasera golpeada barco Enorme vertical
+        if (contenido == 49) {
+            this.setIcon(new ImageIcon(barcoEnormeVAD.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(53);
+            
+            try {
+            Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+            Logger.getLogger(Casilla.class.getName())
+                    .log(Level.SEVERE, null, ex);
+            }
+            
+            explosion = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/Explosion.wav"));
+            explosion.play();            
+        }
+        
+        //Disparo a una casilla con parte media 1 barco Enorme vertical
+        if (contenido == 46) {
+            this.setIcon(new ImageIcon(barcoEnormeVC1G.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(50);
+            disparoAcertado = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/GolpeMetalico.wav"));
+            disparoAcertado.play();
+            
+        }
+        //Disparo a una casilla con parte media 1 golpeada barco muy grande vertical
+        if (contenido == 50) {
+            this.setIcon(new ImageIcon(barcoEnormeVC1D.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(54);
+            
+            try {
+            Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+            Logger.getLogger(Casilla.class.getName())
+                    .log(Level.SEVERE, null, ex);
+            }
+            
+            explosion = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/Explosion.wav"));
+            explosion.play();            
+        }
+        
+        //Disparo a una casilla con parte media 2 barco Enorme vertical
+        if (contenido == 47) {
+            this.setIcon(new ImageIcon(barcoEnormeVC2G.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(51);
+            disparoAcertado = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/GolpeMetalico.wav"));
+            disparoAcertado.play();
+            
+        }
+        //Disparo a una casilla con parte media 2 golpeada barco Enorme vertical
+        if (contenido == 51) {
+            this.setIcon(new ImageIcon(barcoEnormeVC2D.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(55);
+            
+            try {
+            Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+            Logger.getLogger(Casilla.class.getName())
+                    .log(Level.SEVERE, null, ex);
+            }
+            
+            explosion = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/Explosion.wav"));
+            explosion.play();            
+        }
+        
+        
+        //Disparo a una casilla con parte delantera barco Enorme vertical
+        if (contenido == 48) {
+            this.setIcon(new ImageIcon(barcoEnormeVDG.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(52);
+            disparoAcertado = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/GolpeMetalico.wav"));
+            disparoAcertado.play();
+            
+        }
+        //Disparo a una casilla con parte Delantera golpeada barco Enorme vertical
+        if (contenido == 52) {
+            this.setIcon(new ImageIcon(barcoEnormeVDD.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(56);
             
             try {
             Thread.sleep(2000);
