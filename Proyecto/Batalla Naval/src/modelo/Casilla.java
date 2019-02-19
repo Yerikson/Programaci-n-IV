@@ -22,6 +22,7 @@ public class Casilla extends JButton{
     
     private AudioClip disparoCañon;
     private AudioClip explosion;
+    private int numeroCasilla;
     private int ancho;
     private int alto;
     private int contenidoCasilla;
@@ -89,9 +90,87 @@ public class Casilla extends JButton{
     private ImageIcon barcoEnormeVDD = new ImageIcon("56.png");
     //Imagen Fallo
     private ImageIcon fallo = new ImageIcon("BalaGolpeAgua.jpg");
-    
-    
-    
+
+    public int getNumeroCasilla() {
+        return numeroCasilla;
+    }
+
+    public ImageIcon getBarcoGrandeHA() {
+        return barcoGrandeHA;
+    }
+
+    public ImageIcon getBarcoGrandeHD() {
+        return barcoGrandeHD;
+    }
+
+    public ImageIcon getBarcoGrandeVA() {
+        return barcoGrandeVA;
+    }
+
+    public ImageIcon getBarcoGrandeVD() {
+        return barcoGrandeVD;
+    }
+
+    public ImageIcon getBarcoMuyGrandeHA() {
+        return barcoMuyGrandeHA;
+    }
+
+    public ImageIcon getBarcoMuyGrandeHC() {
+        return barcoMuyGrandeHC;
+    }
+
+    public ImageIcon getBarcoMuyGrandeHD() {
+        return barcoMuyGrandeHD;
+    }
+
+    public ImageIcon getBarcoMuyGrandeVA() {
+        return barcoMuyGrandeVA;
+    }
+
+    public ImageIcon getBarcoMuyGrandeVC() {
+        return barcoMuyGrandeVC;
+    }
+
+    public ImageIcon getBarcoMuyGrandeVD() {
+        return barcoMuyGrandeVD;
+    }
+
+    public ImageIcon getBarcoEnormeHA() {
+        return barcoEnormeHA;
+    }
+
+    public ImageIcon getBarcoEnormeHC1() {
+        return barcoEnormeHC1;
+    }
+
+    public ImageIcon getBarcoEnormeHC2() {
+        return barcoEnormeHC2;
+    }
+
+    public ImageIcon getBarcoEnormeHD() {
+        return barcoEnormeHD;
+    }
+
+    public ImageIcon getBarcoEnormeVA() {
+        return barcoEnormeVA;
+    }
+
+    public ImageIcon getBarcoEnormeVC1() {
+        return barcoEnormeVC1;
+    }
+
+    public ImageIcon getBarcoEnormeVC2() {
+        return barcoEnormeVC2;
+    }
+
+    public ImageIcon getBarcoEnormeVD() {
+        return barcoEnormeVD;
+    }
+
+    public void setNumeroCasilla(int numeroCasilla) {
+        this.numeroCasilla = numeroCasilla;
+    }
+       
     
     
     public int getAncho() {
@@ -104,6 +183,16 @@ public class Casilla extends JButton{
 
     public ImageIcon getBarcoPequeño() {
         return barcoPequeño;
+    }
+    
+    public int getContenidoCasilla() {
+        
+        return contenidoCasilla;
+    }
+
+    public void setContenidoCasilla(int contenidaCasilla) {
+        
+        this.contenidoCasilla = contenidaCasilla;
     }
         
     public Casilla() {
@@ -126,7 +215,6 @@ public class Casilla extends JButton{
             Logger.getLogger(Casilla.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (contenido == 1) {
-            
             this.setIcon(new ImageIcon(barcoPequeñoDestruido.getImage().getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
             explosion = java.applet.Applet.newAudioClip(getClass().getResource("/controlador/Explosion.wav"));
             explosion.play();
@@ -156,15 +244,7 @@ public class Casilla extends JButton{
     }
     
     
-    public int getContenidoCasilla() {
-        
-        return contenidoCasilla;
-    }
 
-    public void setContenidoCasilla(int contenidaCasilla) {
-        
-        this.contenidoCasilla = contenidaCasilla;
-    }
     
     
     

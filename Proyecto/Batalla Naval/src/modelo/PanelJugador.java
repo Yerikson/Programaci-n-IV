@@ -60,6 +60,7 @@ public class PanelJugador extends JPanel{
         
         icondefectoMar(tipoUsuario);
     }
+    
     public void icondefectoMar(int tipeUser){
         
         Casilla [] [] iconMarMatriz = new Casilla [15] [15];

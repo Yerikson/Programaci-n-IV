@@ -30,7 +30,7 @@ public class PanelMenu extends JPanel{
     public PanelMenu() {        
         
         sonidoMenu = java.applet.Applet.newAudioClip(getClass()
-                .getResource("/controlador/SirenaAtaqueAereo.wav"));  
+                .getResource("/controlador/PiratasDelCaribe.wav"));  
         sonidoMenu.loop();
         PreInit();
         initComponent();
