@@ -1,6 +1,12 @@
 https://matap.dmae.upm.es/WebpersonalBartolo/EDOs/3_Ecuaciones_diferenciales_orden_superior.pdf
 
-0- Mar
+jugador = 0;
+maquina = 0;
+vertical = 0;
+horizontal = 1;
+
+1. Fallo
+0. Mar
 (Tamaño 1)
 1. BarcoPequeño
 2. BarcoPequeñoDestruido

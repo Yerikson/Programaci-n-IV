@@ -4,6 +4,7 @@ package modelo;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -57,13 +58,13 @@ public class PanelJugador extends JPanel{
     
     ///
     public void crearMatrizYUbicarBarcos(int tipoUsuario){
-        
-        icondefectoMar(tipoUsuario);
+        Casilla [] [] iconMarMatriz = new Casilla [15] [15];
+        iconDefectoMar(tipoUsuario, iconMarMatriz);
     }
     
-    public void icondefectoMar(int tipeUser){
+    public void iconDefectoMar(int tipeUser, Casilla [] [] iconMarMatriz ){
         
-        Casilla [] [] iconMarMatriz = new Casilla [15] [15];
+        int auxNumero = 1;
         
         for (int i = 0; i < 15; i++) {
             
@@ -73,12 +74,13 @@ public class PanelJugador extends JPanel{
                 auxCasilla1.setSize(auxCasilla1.getAncho()
                         , auxCasilla1.getAlto());
                 iconMarMatriz [i][j] = auxCasilla1;
-                iconMarMatriz [i][j].setIcon(new ImageIcon(auxCasilla1.getBarcoPequeño().getImage()
-                        .getScaledInstance(42, 44, Image.SCALE_SMOOTH)));    
+                iconMarMatriz [i][j].setNumeroCasilla(auxNumero);                
                 iconMarMatriz [i][j].setContenidoCasilla(0);
-                
+                iconMarMatriz [i][j].setNumeroFila(i);
+                iconMarMatriz [i][j].setNumeroColumna(j);
+                auxNumero = auxNumero + 1;
                 if (tipeUser == 1) {
-                    
+                                        
                     iconMarMatriz [i][j].agregarOyente();
                 }
                 
@@ -86,17 +88,58 @@ public class PanelJugador extends JPanel{
             }
             
         }
-        agregarMatriz(iconMarMatriz);
+        ubicarYDistribuirBarcos(iconMarMatriz);
+        //agregarMatriz(iconMarMatriz);
         
     }
     
-    public void ubicarYDistribuirBarcos(Casilla [] [] iconMarMatriz){
+    public void ubicarYDistribuirBarcos(Casilla [] [] barcosMatriz){
         
+        Casilla auxCasilla2 = new Casilla();
+        int fila;
+        int columna;
+        int direccion;
+        Random fila1 = new Random();
+        Random columna1 = new Random();
+        Random direccion1 = new Random();
         
-        
+        //Ubicar Barcos Pequeños (Tamaño 1)
         for (int i = 0; i < 6; i++) {
             
+            fila = fila1.nextInt(15);
+            columna = columna1.nextInt(15);
+            
+            if (barcosMatriz[fila][columna].getContenidoCasilla() == 0) {
+                
+                barcosMatriz [fila][columna].setIcon(new ImageIcon(auxCasilla2
+                        .getBarcoPequeño().getImage()
+                        .getScaledInstance(42, 44, Image.SCALE_SMOOTH)));
+                barcosMatriz [fila][columna].setContenidoCasilla(1);
+                
+            } else {
+                i = i - 1;
+            }            
         }
+        
+        //Ubicar Barcos Grandes (Tamaño 2)
+        for (int i = 0; i < 4; i++) {
+            
+            direccion = direccion1.nextInt(2);
+            fila = fila1.nextInt(15);
+            columna = columna1.nextInt(15);
+            
+            if (direccion == 0) {
+                
+            } else {
+            }
+            
+            
+            
+        }
+        
+        
+        
+        agregarMatriz(barcosMatriz);
         
         
     }

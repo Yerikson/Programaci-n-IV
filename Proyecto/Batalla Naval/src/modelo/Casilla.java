@@ -19,10 +19,13 @@ import javax.swing.JButton;
  * @author USER
  */
 public class Casilla extends JButton{    
-    
+
     private AudioClip disparoCañon;
     private AudioClip explosion;
+    private AudioClip splash;
     private int numeroCasilla;
+    private int numeroFila;
+    private int numeroColumna;
     private int ancho;
     private int alto;
     private int contenidoCasilla;
@@ -91,6 +94,22 @@ public class Casilla extends JButton{
     //Imagen Fallo
     private ImageIcon fallo = new ImageIcon("BalaGolpeAgua.jpg");
 
+    public int getNumeroFila() {
+        return numeroFila;
+    }
+
+    public int getNumeroColumna() {
+        return numeroColumna;
+    }
+
+    public void setNumeroFila(int numeroFila) {
+        this.numeroFila = numeroFila;
+    }
+
+    public void setNumeroColumna(int numeroColumna) {
+        this.numeroColumna = numeroColumna;
+    }
+    
     public int getNumeroCasilla() {
         return numeroCasilla;
     }
@@ -171,8 +190,6 @@ public class Casilla extends JButton{
         this.numeroCasilla = numeroCasilla;
     }
        
-    
-    
     public int getAncho() {
         return ancho;
     }
@@ -207,19 +224,47 @@ public class Casilla extends JButton{
 
     public void cambiarIcono(int contenido){
                 
-        disparoCañon = java.applet.Applet.newAudioClip(getClass().getResource("/controlador/Cañones.wav"));
+        disparoCañon = java.applet.Applet.newAudioClip(getClass()
+                .getResource("/controlador/Cañones.wav"));
         disparoCañon.play();
         try {
             Thread.sleep(5000);
         } catch (InterruptedException ex) {
-            Logger.getLogger(Casilla.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Casilla.class.getName())
+                    .log(Level.SEVERE, null, ex);
         }
+        
+        if (contenido == 0) {
+            
+            splash = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/SplashAgua.wav"));
+            splash.play();
+            
+            try {
+            Thread.sleep(2000);
+            } catch (InterruptedException ex) {
+            Logger.getLogger(Casilla.class.getName())
+                    .log(Level.SEVERE, null, ex);
+            }
+            
+            this.setIcon(new ImageIcon(fallo.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(-1);
+            
+        }
+        
         if (contenido == 1) {
-            this.setIcon(new ImageIcon(barcoPequeñoDestruido.getImage().getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
-            explosion = java.applet.Applet.newAudioClip(getClass().getResource("/controlador/Explosion.wav"));
+            this.setIcon(new ImageIcon(barcoPequeñoDestruido.getImage()
+                    .getScaledInstance(42, 44, Image.SCALE_SMOOTH))); 
+            this.setContenidoCasilla(2);
+            explosion = java.applet.Applet.newAudioClip(getClass()
+                    .getResource("/controlador/Explosion.wav"));
             explosion.play();
             
         }
+        
+        
+        
         
     }
     
@@ -231,9 +276,19 @@ public class Casilla extends JButton{
         
                 
                 if (e.getClickCount() == 2) {
-                                        
-                    cambiarIcono(1);                    
-                    System.out.println("Hola Mundo");
+                     
+                    if (contenidoCasilla == 0) {
+                        
+                        cambiarIcono(0); 
+                        
+                    }
+                    if (contenidoCasilla == 1) {
+                        
+                        cambiarIcono(1);                    
+                        System.out.println("Soy La Casilla Número: " + numeroCasilla);
+                        
+                    }
+                    
                     
                 }
             }

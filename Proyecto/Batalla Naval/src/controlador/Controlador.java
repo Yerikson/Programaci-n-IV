@@ -46,10 +46,8 @@ public class Controlador {
     
     public void agregarPanelesConSusMatrices(){
         
-
         this.panelUsuario.crearMatrizYUbicarBarcos(0);
         this.ventanaJuego.agregarPanel(panelUsuario);
-        //this.panelMaquina.icondefectoMar();
         this.panelMaquina.crearMatrizYUbicarBarcos(1);       
         this.ventanaJuego.agregarPanel(panelMaquina);
     }

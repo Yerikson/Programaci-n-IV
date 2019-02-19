@@ -1,8 +1,7 @@
 
 package modelo;
 
-import java.awt.Color;
-import javax.swing.JPanel;
+
 
 /**
  *
