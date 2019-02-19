@@ -18,8 +18,8 @@ import vista.VentanaPrincipal;
 public class Controlador {
     
     private VentanaPrincipal ventanaJuego;
-    private PanelJugador panelUsuario = new PanelJugador(0);
-    private PanelJugador panelMaquina = new PanelJugador(1);
+    public PanelJugador panelUsuario = new PanelJugador(0);
+    public PanelJugador panelMaquina = new PanelJugador(1);
     private PanelMenu menuNuevo = new PanelMenu();
     
     public Controlador(VentanaPrincipal ventanaJuego) {

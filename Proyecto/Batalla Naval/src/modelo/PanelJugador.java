@@ -4,6 +4,8 @@ package modelo;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -15,7 +17,7 @@ import javax.swing.JPanel;
 public class PanelJugador extends JPanel{   
     
     private Image fond;
-    private int numeroAleatorio;
+    public Casilla [] [] barcosMatriz = new Casilla [15] [15];
     
     public PanelJugador(int tipoJugador) {        
         
@@ -58,11 +60,13 @@ public class PanelJugador extends JPanel{
     
     ///
     public void crearMatrizYUbicarBarcos(int tipoUsuario){
-        Casilla [] [] iconMarMatriz = new Casilla [15] [15];
-        iconDefectoMar(tipoUsuario, iconMarMatriz);
+       // Casilla [] [] iconMarMatriz = new Casilla [15] [15];
+        //iconDefectoMar(tipoUsuario, iconMarMatriz);
+        iconDefectoMar(tipoUsuario);
     }
     
-    public void iconDefectoMar(int tipeUser, Casilla [] [] iconMarMatriz ){
+    //public void iconDefectoMar(int tipeUser, Casilla [] [] iconMarMatriz )
+    public void iconDefectoMar(int tipeUser){
         
         int auxNumero = 1;
         
@@ -73,27 +77,38 @@ public class PanelJugador extends JPanel{
                 Casilla auxCasilla1 = new Casilla();
                 auxCasilla1.setSize(auxCasilla1.getAncho()
                         , auxCasilla1.getAlto());
+                /*
                 iconMarMatriz [i][j] = auxCasilla1;
                 iconMarMatriz [i][j].setNumeroCasilla(auxNumero);                
                 iconMarMatriz [i][j].setContenidoCasilla(0);
                 iconMarMatriz [i][j].setNumeroFila(i);
-                iconMarMatriz [i][j].setNumeroColumna(j);
+                iconMarMatriz [i][j].setNumeroColumna(j);*/
+                
+                barcosMatriz [i][j] = auxCasilla1;
+                barcosMatriz [i][j].setNumeroCasilla(auxNumero);                
+                barcosMatriz [i][j].setContenidoCasilla(0);
+                barcosMatriz [i][j].setNumeroFila(i);
+                barcosMatriz [i][j].setNumeroColumna(j);
+                
+                
                 auxNumero = auxNumero + 1;
                 if (tipeUser == 1) {
-                                        
-                    iconMarMatriz [i][j].agregarOyente();
+                    
+                    agregarOyente1(i,j);     
+                    //barcosMatriz [i][j].agregarOyente();
+                    //iconMarMatriz [i][j].agregarOyente();
                 }
                 
                 
             }
             
         }
-        ubicarYDistribuirBarcos(iconMarMatriz);
-        //agregarMatriz(iconMarMatriz);
+        ubicarYDistribuirBarcos();
+        //ubicarYDistribuirBarcos(iconMarMatriz);
         
     }
-    
-    public void ubicarYDistribuirBarcos(Casilla [] [] barcosMatriz){
+    //public void ubicarYDistribuirBarcos(Casilla [] [] barcosMatriz)
+    public void ubicarYDistribuirBarcos(){
         
         Casilla auxCasilla2 = new Casilla();
         int fila;
@@ -182,45 +197,76 @@ public class PanelJugador extends JPanel{
             }                        
             
         }
-        
-        
-        
-        agregarMatriz(barcosMatriz);
-        
+                        
+        //agregarMatriz(barcosMatriz);
+        agregarMatriz();
         
     }
-    public void agregarMatriz(Casilla [] [] iconMarMatriz){
+    //public void agregarMatriz(Casilla [] [] iconMarMatriz)
+    public void agregarMatriz(){
         
         for (int i = 0; i < 15; i++) {
             
             for (int j = 0; j < 15; j++) {
-                this.add(iconMarMatriz[i][j]);
+                this.add(barcosMatriz[i][j]);
                 this.repintarPanel();
             }
         }
         
     }
     
-    /*
-    public void agregarMatriz1(){
+       public void agregarOyente1(int fila, int columna){
         
-        Casilla [] [] nuevaMatriz = new Casilla [15] [15];
-        int ancho = 42;
-        int alto = 44;
+        MouseAdapter oyenteRaton = new MouseAdapter() {
         
-        for (int i = 0; i < 15; i++) {
-            
-            for (int j = 0; j < 15; j++) {                    
-                Casilla auxCasilla = new Casilla();               
-                auxCasilla.setSize(ancho, alto);                
-                nuevaMatriz[i][j] = auxCasilla; 
-                nuevaMatriz[i][j].setIcon(new ImageIcon(auxCasilla.getBarcoPequeño().getImage()
-                        .getScaledInstance(42, 44, Image.SCALE_SMOOTH)));              
-                this.add(nuevaMatriz[i][j]);
-                this.repintarPanel();
-
+            public void mouseClicked(MouseEvent e){
+        
+                
+                if (e.getClickCount() == 2) {
+                    //Dispararle a una casilla con agua
+                    if (barcosMatriz[fila][columna].getContenidoCasilla() == 0){
+                        
+                        barcosMatriz[fila][columna].cambiarIcono(0);
+                        //cambiarIcono(0); 
+                        System.out.println("Soy La Casilla Número: " + barcosMatriz[fila][columna].getNumeroCasilla());
+                    }
+                    //Dispararle a una casilla con barco pequeño
+                    if (barcosMatriz[fila][columna].getContenidoCasilla() == 1){
+                        
+                        barcosMatriz[fila][columna].cambiarIcono(1);              
+                        System.out.println("Soy La Casilla Número: " + barcosMatriz[fila][columna].getNumeroCasilla());
+                        
+                    }
+                    //Dispararle a una casilla con la parte trasera barco grande horizontal
+                    if (barcosMatriz[fila][columna].getContenidoCasilla() == 3){
+                        
+                        if (barcosMatriz[fila][columna + 1].getContenidoCasilla() == 6) {
+                            
+                            barcosMatriz[fila][columna].cambiarIcono(5);  
+                            barcosMatriz[fila][columna + 1].cambiarIcono(6);
+                            System.out.println("Soy La Casilla Número: " + barcosMatriz[fila][columna].getNumeroCasilla());
+                        } else {
+                            barcosMatriz[fila][columna].cambiarIcono(3);
+                        }                        
+                    }
+                    //Dispararle a una casilla con la parte delantera barco grande horizontal
+                    if (barcosMatriz[fila][columna].getContenidoCasilla() == 4){
+                        
+                        if (barcosMatriz[fila][columna - 1].getContenidoCasilla() == 5) {
+                            
+                            barcosMatriz[fila][columna].cambiarIcono(6);  
+                            barcosMatriz[fila][columna - 1].cambiarIcono(5);
+                            System.out.println("Soy La Casilla Número: " + barcosMatriz[fila][columna].getNumeroCasilla());
+                        } else {
+                            barcosMatriz[fila][columna].cambiarIcono(4);
+                        }                        
+                    }
+                    
+                }
             }
-            
-        }
-    }*/
+
+        };
+        barcosMatriz[fila][columna].addMouseListener(oyenteRaton);                
+        
+    }
 }
