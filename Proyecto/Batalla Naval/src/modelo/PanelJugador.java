@@ -8,6 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Random;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -15,7 +16,15 @@ import javax.swing.JPanel;
  * @author USER
  */
 public class PanelJugador extends JPanel{   
-    
+    private int totalBarcosJugador = 13;
+    private int totalBarcosMaquina = 13;
+    private int barcosPequeños = 6;
+    private int barcosGrandesH = 0;
+    private int barcosGrandesV = 0;
+    private int barcosMuyGrandesH = 0;
+    private int barcosMuyGrandesV = 0;
+    private int barcosEnormesH = 0;
+    private int barcosEnormesV = 0;
     private Image fond;
     public Casilla [] [] barcosMatriz = new Casilla [15] [15];
     
@@ -91,11 +100,11 @@ public class PanelJugador extends JPanel{
             }
             
         }
-        ubicarYDistribuirBarcos();
+        ubicarYDistribuirBarcos(tipeUser);
         
     }
 
-    public void ubicarYDistribuirBarcos(){
+    public void ubicarYDistribuirBarcos(int tipeUser){
         
         Casilla auxCasilla2 = new Casilla();
         int fila;
@@ -117,6 +126,7 @@ public class PanelJugador extends JPanel{
                         .getBarcoPequeño().getImage()
                         .getScaledInstance(42, 44, Image.SCALE_SMOOTH)));
                 barcosMatriz [fila][columna].setContenidoCasilla(1);
+                
                 
             } else {
                 i = i - 1;
@@ -153,6 +163,11 @@ public class PanelJugador extends JPanel{
                     
                     barcosMatriz [fila][columna + 1].setContenidoCasilla(4);
                     
+                    if (tipeUser == 1) {
+                        
+                        this.barcosGrandesH += 1;
+                    }
+                    
                     
                 } else {
                     i = i - 1;
@@ -178,6 +193,11 @@ public class PanelJugador extends JPanel{
                         .getScaledInstance(42, 44, Image.SCALE_SMOOTH)));
                     
                     barcosMatriz [fila + 1][columna].setContenidoCasilla(10);
+                    
+                    if (tipeUser == 1) {
+                        
+                        this.barcosGrandesV += 1;
+                    }
                     
                     
                 } else {
@@ -228,6 +248,11 @@ public class PanelJugador extends JPanel{
                     
                     barcosMatriz [fila][columna + 2].setContenidoCasilla(17);
                     
+                    if (tipeUser == 1) {
+                        
+                        this.barcosMuyGrandesH += 1;
+                    }
+                    
                     
                 } else {
                     i = i - 1;
@@ -265,6 +290,10 @@ public class PanelJugador extends JPanel{
                     
                     barcosMatriz [fila + 2][columna].setContenidoCasilla(26);
                     
+                    if(tipeUser == 1){
+                        
+                        this.barcosMuyGrandesV += 1;
+                    }
                     
                 } else {
                     i = i - 1;
@@ -324,6 +353,10 @@ public class PanelJugador extends JPanel{
                     
                     barcosMatriz [fila][columna + 3].setContenidoCasilla(36);
                     
+                    if (tipeUser == 1) {
+                        
+                        this.barcosEnormesH += 1;
+                    }
                     
                 } else {
                     i = i - 1;
@@ -371,19 +404,37 @@ public class PanelJugador extends JPanel{
                     
                     barcosMatriz [fila + 3][columna].setContenidoCasilla(48);
                     
+                    if (tipeUser == 1) {
+                        
+                        this.barcosEnormesV += 1;
+                    }
                     
                 } else {
                     i = i - 1;
                 }
                 
             }   
-            
         }
         
-        agregarMatriz();
-        
+        agregarMatriz();     
     }
 
+    public void mostrarNumeroBarcosOcultos(){
+        
+        JOptionPane.showMessageDialog(null,"\nSeñor según datos de nuestros "
+                + "espías el enemigo tiene 13 barcos ocultos de los cuales "
+                + "solo conocemos su orientacion y tamaño." + 
+                "\nBarcos Del Tamaño De Una Celda: " + this.barcosPequeños
+        + "\nBarcos Del Tamaño De Dos Celdas: "
+                + "\n  Horizontales: " + this.barcosGrandesH + "\n  Verticales: "
+                        + this.barcosGrandesV + "\nBarcos Del Tamaño De Tres"
+                                + "Celdas:" + "\n  Horizontales: " + 
+                this.barcosMuyGrandesH + "\n  Verticales: " + 
+                this.barcosMuyGrandesV + "\nBarcos Del Tamaño De Cuatro"
+                        + "Celdas: " + "\n  Horizontales: " +
+                this.barcosEnormesH + "\n  Verticales: " +
+                this.barcosEnormesV);
+    }
     public void agregarMatriz(){
         
         for (int i = 0; i < 15; i++) {
@@ -647,7 +698,6 @@ public class PanelJugador extends JPanel{
                         }                        
                     }
                     
-                    ///COPIA
                     //Dispararle a una casilla con la parte trasera barco Enorme Vertical
                     if (barcosMatriz[fila][columna].getContenidoCasilla() == 45){
                         
@@ -733,4 +783,329 @@ public class PanelJugador extends JPanel{
         barcosMatriz[fila][columna].addMouseListener(oyenteRaton);                
         
     }
+       
+    public void disparoMaquina(int fila, int columna){
+
+        //Dispararle a una casilla con agua
+        if (barcosMatriz[fila][columna].getContenidoCasilla() == 0){                        
+
+            barcosMatriz[fila][columna].cambiarIcono(0, 1);
+        }
+        //Dispararle a una casilla con barco pequeño
+        if (barcosMatriz[fila][columna].getContenidoCasilla() == 1){
+
+            barcosMatriz[fila][columna].cambiarIcono(1, 1);              
+        }
+        //Dispararle a una casilla con la parte trasera barco grande horizontal
+        if (barcosMatriz[fila][columna].getContenidoCasilla() == 3){
+
+            if (barcosMatriz[fila][columna + 1].getContenidoCasilla() == 6) {
+
+                barcosMatriz[fila][columna].cambiarIcono(5, 1);  
+                barcosMatriz[fila][columna + 1].cambiarIcono(6, 2);
+            } else {
+                barcosMatriz[fila][columna].cambiarIcono(3, 1);
+            }                        
+        }
+        //Dispararle a una casilla con la parte delantera barco grande horizontal
+        if (barcosMatriz[fila][columna].getContenidoCasilla() == 4){
+
+            if (barcosMatriz[fila][columna - 1].getContenidoCasilla() == 5) {
+
+                barcosMatriz[fila][columna].cambiarIcono(6, 1);  
+                barcosMatriz[fila][columna - 1].cambiarIcono(5, 2);
+
+            } else {
+                barcosMatriz[fila][columna].cambiarIcono(4, 1);
+            }                        
+        }
+
+
+        //Dispararle a una casilla con la parte trasera barco grande vertical
+        if (barcosMatriz[fila][columna].getContenidoCasilla() == 9){
+
+            if (barcosMatriz[fila + 1][columna].getContenidoCasilla() == 12) {
+
+                barcosMatriz[fila][columna].cambiarIcono(11, 1);  
+                barcosMatriz[fila + 1][columna].cambiarIcono(12, 2);
+
+            } else {
+                barcosMatriz[fila][columna].cambiarIcono(9, 1);
+            }                        
+        }
+        //Dispararle a una casilla con la parte delantera barco grande vertical
+        if (barcosMatriz[fila][columna].getContenidoCasilla() == 10){
+
+            if (barcosMatriz[fila - 1][columna].getContenidoCasilla() == 11) {
+
+                barcosMatriz[fila][columna].cambiarIcono(12, 1);  
+                barcosMatriz[fila - 1][columna].cambiarIcono(11, 2);
+
+            } else {
+                barcosMatriz[fila][columna].cambiarIcono(10, 1);
+            }                        
+        }
+
+        //Dispararle a una casilla con la parte trasera barco muy grande horizontal
+        if (barcosMatriz[fila][columna].getContenidoCasilla() == 15){
+
+            if (barcosMatriz[fila][columna + 1]
+                    .getContenidoCasilla() == 19
+                    && barcosMatriz[fila][columna + 2]
+                            .getContenidoCasilla() == 20) {
+
+                barcosMatriz[fila][columna].cambiarIcono(18, 1);  
+                barcosMatriz[fila][columna + 1].cambiarIcono(19, 2);
+                barcosMatriz[fila][columna + 2].cambiarIcono(20, 2);
+
+            } else {
+                barcosMatriz[fila][columna].cambiarIcono(15, 1);
+            }                        
+        }
+        //Dispararle a una casilla con la parte media barco muy grande horizontal
+        if (barcosMatriz[fila][columna].getContenidoCasilla() == 16){
+
+            if (barcosMatriz[fila][columna - 1]
+                    .getContenidoCasilla() == 18
+                    && barcosMatriz[fila][columna + 1]
+                            .getContenidoCasilla() == 20) {
+
+                barcosMatriz[fila][columna].cambiarIcono(19, 1);  
+                barcosMatriz[fila][columna - 1].cambiarIcono(18, 2);
+                barcosMatriz[fila][columna + 1].cambiarIcono(20, 2);
+
+            } else {
+                barcosMatriz[fila][columna].cambiarIcono(16, 1);
+            }                        
+        }
+        //Dispararle a una casilla con la parte delantera barco muy grande horizontal
+        if (barcosMatriz[fila][columna].getContenidoCasilla() == 17){
+
+            if (barcosMatriz[fila][columna - 1]
+                    .getContenidoCasilla() == 19
+                    && barcosMatriz[fila][columna - 2]
+                            .getContenidoCasilla() == 18) {
+
+                barcosMatriz[fila][columna].cambiarIcono(20, 1);  
+                barcosMatriz[fila][columna - 1].cambiarIcono(19, 2);
+                barcosMatriz[fila][columna - 2].cambiarIcono(18, 2);
+
+            } else {
+                barcosMatriz[fila][columna].cambiarIcono(17, 1);
+            }                        
+        }
+
+        //Dispararle a una casilla con la parte trasera barco muy grande vertical
+        if (barcosMatriz[fila][columna].getContenidoCasilla() == 24){
+
+            if (barcosMatriz[fila + 1][columna]
+                    .getContenidoCasilla() == 28
+                    && barcosMatriz[fila + 2][columna]
+                            .getContenidoCasilla() == 29) {
+
+                barcosMatriz[fila][columna].cambiarIcono(27, 1);  
+                barcosMatriz[fila + 1][columna].cambiarIcono(28, 2);
+                barcosMatriz[fila + 2][columna].cambiarIcono(29, 2);
+
+            } else {
+                barcosMatriz[fila][columna].cambiarIcono(24, 1);
+            }                        
+        }
+        //Dispararle a una casilla con la parte media barco muy grande horizontal
+        if (barcosMatriz[fila][columna].getContenidoCasilla() == 25){
+
+            if (barcosMatriz[fila - 1][columna]
+                    .getContenidoCasilla() == 27
+                    && barcosMatriz[fila + 1][columna]
+                            .getContenidoCasilla() == 29) {
+
+                barcosMatriz[fila][columna].cambiarIcono(28, 1);  
+                barcosMatriz[fila - 1][columna].cambiarIcono(27, 2);
+                barcosMatriz[fila + 1][columna].cambiarIcono(29, 2);
+
+            } else {
+                barcosMatriz[fila][columna].cambiarIcono(25, 1);
+            }                        
+        }
+        //Dispararle a una casilla con la parte delantera barco muy grande vertical
+        if (barcosMatriz[fila][columna].getContenidoCasilla() == 26){
+
+            if (barcosMatriz[fila - 1][columna]
+                    .getContenidoCasilla() == 28
+                    && barcosMatriz[fila - 2][columna]
+                            .getContenidoCasilla() == 27) {
+
+                barcosMatriz[fila][columna].cambiarIcono(29, 1);  
+                barcosMatriz[fila - 1][columna].cambiarIcono(28, 2);
+                barcosMatriz[fila - 2][columna].cambiarIcono(27, 2);
+
+            } else {
+                barcosMatriz[fila][columna].cambiarIcono(26, 1);
+            }                        
+        }
+
+
+        //Dispararle a una casilla con la parte trasera barco Enorme horizontal
+        if (barcosMatriz[fila][columna].getContenidoCasilla() == 33){
+
+            if (barcosMatriz[fila][columna + 1]
+                    .getContenidoCasilla() == 38
+                    && barcosMatriz[fila][columna + 2]
+                            .getContenidoCasilla() == 39
+                    && barcosMatriz[fila][columna + 3]
+                            .getContenidoCasilla() == 40) {
+
+                barcosMatriz[fila][columna].cambiarIcono(37, 1);  
+                barcosMatriz[fila][columna + 1].cambiarIcono(38, 2);
+                barcosMatriz[fila][columna + 2].cambiarIcono(39, 2);
+                barcosMatriz[fila][columna + 3].cambiarIcono(40, 2);
+
+            } else {
+                barcosMatriz[fila][columna].cambiarIcono(33, 1);
+            }                        
+        }
+        //Dispararle a una casilla con la parte media 1 barco Enorme horizontal
+        if (barcosMatriz[fila][columna].getContenidoCasilla() == 34){
+
+            if (barcosMatriz[fila][columna - 1]
+                    .getContenidoCasilla() == 37
+                    && barcosMatriz[fila][columna + 1]
+                            .getContenidoCasilla() == 39
+                    && barcosMatriz[fila][columna + 2]
+                            .getContenidoCasilla() == 40) {
+
+                barcosMatriz[fila][columna].cambiarIcono(38, 1);  
+                barcosMatriz[fila][columna - 1].cambiarIcono(37, 2);
+                barcosMatriz[fila][columna + 1].cambiarIcono(39, 2);
+                barcosMatriz[fila][columna + 2].cambiarIcono(40, 2);
+
+            } else {
+                barcosMatriz[fila][columna].cambiarIcono(34, 1);
+            }                        
+        }
+
+        //Dispararle a una casilla con la parte media 2 barco Enorme horizontal
+        if (barcosMatriz[fila][columna].getContenidoCasilla() == 35){
+
+            if (barcosMatriz[fila][columna - 1]
+                    .getContenidoCasilla() == 38
+                    && barcosMatriz[fila][columna + 1]
+                            .getContenidoCasilla() == 40
+                    && barcosMatriz[fila][columna - 2]
+                            .getContenidoCasilla() == 37) {
+
+                barcosMatriz[fila][columna].cambiarIcono(39, 1);  
+                barcosMatriz[fila][columna - 1].cambiarIcono(38, 2);
+                barcosMatriz[fila][columna + 1].cambiarIcono(40, 2);
+                barcosMatriz[fila][columna - 2].cambiarIcono(37, 2);
+
+            } else {
+                barcosMatriz[fila][columna].cambiarIcono(35, 1);
+            }                        
+        }
+
+        //Dispararle a una casilla con la parte delantera barco Enorme horizontal
+        if (barcosMatriz[fila][columna].getContenidoCasilla() == 36){
+
+            if (barcosMatriz[fila][columna - 1]
+                    .getContenidoCasilla() == 39
+                    && barcosMatriz[fila][columna - 2]
+                            .getContenidoCasilla() == 38
+                    && barcosMatriz[fila][columna - 3]
+                            .getContenidoCasilla() == 37) {
+
+                barcosMatriz[fila][columna].cambiarIcono(40, 1);  
+                barcosMatriz[fila][columna - 1].cambiarIcono(39, 2);
+                barcosMatriz[fila][columna - 2].cambiarIcono(38, 2);
+                barcosMatriz[fila][columna - 3].cambiarIcono(37, 2);
+
+            } else {
+                barcosMatriz[fila][columna].cambiarIcono(36, 1);
+            }                        
+        }
+
+        //Dispararle a una casilla con la parte trasera barco Enorme Vertical
+        if (barcosMatriz[fila][columna].getContenidoCasilla() == 45){
+
+            if (barcosMatriz[fila + 1][columna]
+                    .getContenidoCasilla() == 50
+                    && barcosMatriz[fila + 2][columna]
+                            .getContenidoCasilla() == 51
+                    && barcosMatriz[fila + 3][columna]
+                            .getContenidoCasilla() == 52) {
+
+                barcosMatriz[fila][columna].cambiarIcono(49, 1);  
+                barcosMatriz[fila + 1][columna].cambiarIcono(50, 2);
+                barcosMatriz[fila + 2][columna].cambiarIcono(51, 2);
+                barcosMatriz[fila + 3][columna].cambiarIcono(52, 2);
+
+            } else {
+                barcosMatriz[fila][columna].cambiarIcono(45, 1);
+            }                        
+        }
+        //Dispararle a una casilla con la parte media 1 barco Enorme vertical
+        if (barcosMatriz[fila][columna].getContenidoCasilla() == 46){
+
+            if (barcosMatriz[fila - 1][columna]
+                    .getContenidoCasilla() == 49
+                    && barcosMatriz[fila + 1][columna]
+                            .getContenidoCasilla() == 51
+                    && barcosMatriz[fila + 2][columna]
+                            .getContenidoCasilla() == 52) {
+
+                barcosMatriz[fila][columna].cambiarIcono(50, 1);  
+                barcosMatriz[fila - 1][columna].cambiarIcono(49, 2);
+                barcosMatriz[fila + 1][columna].cambiarIcono(51, 2);
+                barcosMatriz[fila + 2][columna].cambiarIcono(52, 2);
+
+            } else {
+                barcosMatriz[fila][columna].cambiarIcono(46, 1);
+            }                        
+        }
+
+        //Dispararle a una casilla con la parte media 2 barco Enorme vertical
+        if (barcosMatriz[fila][columna].getContenidoCasilla() == 47){
+
+            if (barcosMatriz[fila - 1][columna]
+                    .getContenidoCasilla() == 50
+                    && barcosMatriz[fila + 1][columna]
+                            .getContenidoCasilla() == 52
+                    && barcosMatriz[fila - 2][columna]
+                            .getContenidoCasilla() == 49) {
+
+                barcosMatriz[fila][columna].cambiarIcono(51, 1);  
+                barcosMatriz[fila - 1][columna].cambiarIcono(50, 2);
+                barcosMatriz[fila + 1][columna].cambiarIcono(52, 2);
+                barcosMatriz[fila - 2][columna].cambiarIcono(49, 2);
+
+            } else {
+                barcosMatriz[fila][columna].cambiarIcono(47, 1);
+            }                        
+        }
+
+        //Dispararle a una casilla con la parte delantera barco Enorme vertical
+        if (barcosMatriz[fila][columna].getContenidoCasilla() == 48){
+
+            if (barcosMatriz[fila - 1][columna]
+                    .getContenidoCasilla() == 51
+                    && barcosMatriz[fila - 2][columna]
+                            .getContenidoCasilla() == 50
+                    && barcosMatriz[fila - 3][columna]
+                            .getContenidoCasilla() == 49) {
+
+                barcosMatriz[fila][columna].cambiarIcono(52, 1);  
+                barcosMatriz[fila][columna - 1].cambiarIcono(51, 2);
+                barcosMatriz[fila][columna - 2].cambiarIcono(50, 2);
+                barcosMatriz[fila][columna - 3].cambiarIcono(49, 2);
+
+            } else {
+                barcosMatriz[fila][columna].cambiarIcono(48, 1);
+            }                        
+        }
+
+
+    }
+              
+        
+    
 }

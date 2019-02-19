@@ -8,6 +8,7 @@ import modelo.PanelMenu;
 import java.applet.AudioClip;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 import javax.swing.JOptionPane;
 import modelo.PanelJugador;
 import vista.VentanaPrincipal;
@@ -51,6 +52,7 @@ public class Controlador {
         this.ventanaJuego.agregarPanel(panelUsuario);
         this.panelMaquina.crearMatrizYUbicarBarcos(1);       
         this.ventanaJuego.agregarPanel(panelMaquina);
+        this.panelMaquina.mostrarNumeroBarcosOcultos();
     }
 
     public void eventosBotonesMenu(){
@@ -119,4 +121,12 @@ public class Controlador {
         this.menuNuevo.salir.addActionListener(botonSalir);
         
     }
+    
+    public void ataqueMaquina(){
+        
+        Random fila2 = new Random();
+        Random Columna2 = new Random();
+    }
+
+    
 }
