@@ -1,31 +1,45 @@
-2:47
-0- Mar
+https://matap.dmae.upm.es/WebpersonalBartolo/EDOs/3_Ecuaciones_diferenciales_orden_superior.pdf
 
-1- BarcoPequeño
+0- Mar
+(Tamaño 1)
+1. BarcoPequeño
 2. BarcoPequeñoDestruido
 
+(Tamaño 2)Horizontal
 3- BarcoGrandeHorizontalDelante
-4. BarcoGrandeHorizontalIntermedio
-5. BarcoGrandeHorizontalAtras
-6. BarcoGrandeHorizontalDelanteGolpeado
-7. BarcoGrandeHorizontalIntermedioGolpeado
-8. BarcoGrandeHorizontalAtrasGolpeado
-9. BarcoGrandeHorizontalDelanteDestruido
-10. BarcoGrandeHorizontalIntermedioDestruido
-11. BarcoGrandeHorizontalAtrasDestruido
+4. BarcoGrandeHorizontalAtras
+5. BarcoGrandeHorizontalDelanteGolpeado
+6. BarcoGrandeHorizontalAtrasGolpeado
+7. BarcoGrandeHorizontalDelanteDestruido
+8. BarcoGrandeHorizontalAtrasDestruido
 
+(Tamaño 2)Vertical
 12. BarcoGrandeVerticalDelante
-13. BarcoGrandeVerticalIntermedio
-14. BarcoGrandeVerticalAtras
-15. BarcoGrandeVerticalDelanteGolpeado
-16. BarcoGrandeVerticalalIntermedioGolpeado
-17. BarcoGrandeVerticalAtrasGolpeado
-18. BarcoGrandeVerticalDelanteDestruido
-19. BarcoGrandeVerticalIntermedioDestruido
-20. BarcoGrandeVerticalAtrasDestruido
+13. BarcoGrandeVerticalAtras
+14. BarcoGrandeVerticalDelanteGolpeado
+15. BarcoGrandeVerticalAtrasGolpeado
+16. BarcoGrandeVerticalDelanteDestruido
+17. BarcoGrandeVerticalAtrasDestruido
 
+(Tamaño 3)Horizontal
+18. BarcoMuyGrandeHorizontalDelante
+19. BarcoMuyGrandeHorizontalCostado
+20. BarcoMuyGrandeHorizontalAtras
+21. BarcoMuyGrandeHorizontalDelanteGolpeado
+22. BarcoMuyGrandeHorizontalCostadoGolpeado
+23. BarcoMuyGrandeHorizontalAtrasGolpeado
+24. BarcoMuyGrandeHorizontalDelanteDestruido
+25. BarcoMuyGrandeHorizontalCostadoDestruido
+26. BarcoMuyGrandeHorizontalAtrasDestruido
 
+(Tamaño 3)Vertical
+27. BarcoMuyGrandeVerticalDelante
+28. BarcoMuyGrandeVerticalCostado
+29. BarcoMuyGrandeVerticalAtras
+30. BarcoMuyGrandeVerticalDelanteGolpeado
+31. BarcoMuyGrandeVerticalCostadoGolpeado
+32. BarcoMuyGrandeVerticalAtrasGolpeado
+33. BarcoMuyGrandeVerticalDelanteDestruido
+34. BarcoMuyGrandeVerticalCostadoDestruido
+35. BarcoMuyGrandeVerticalAtrasDestruido
 
-
-Se puede desactivar la detección del paso del mouse para los botones del
-usuario (que queden opacos) e igual seguirian  
