@@ -1,0 +1,3 @@
+9:07
+Modelo: Solo guarda Información
+Tipo de datos: Date

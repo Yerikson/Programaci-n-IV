@@ -382,13 +382,13 @@ public class PanelJugador extends JPanel{
                     barcosMatriz [fila][columna + 2].setContenidoCasilla(35);
                     
                     //Parte Delantera
-                    if (tipeUser == 0) {
+                    //if (tipeUser == 0) {
                                             
                         barcosMatriz [fila][columna + 3]
                                 .setIcon(new ImageIcon(auxCasilla2
                             .getBarcoEnormeHD().getImage()
                             .getScaledInstance(42, 44, Image.SCALE_SMOOTH)));
-                    }
+                    //}
                     barcosMatriz [fila][columna + 3].setContenidoCasilla(36);
                     
                     if (tipeUser == 1) {
@@ -441,13 +441,13 @@ public class PanelJugador extends JPanel{
                     barcosMatriz [fila + 2][columna].setContenidoCasilla(47);
                     
                     //Parte Delantera
-                    if (tipeUser == 0) {
+                    //if (tipeUser == 0) {
                                             
                         barcosMatriz [fila + 3][columna]
                                 .setIcon(new ImageIcon(auxCasilla2
                             .getBarcoEnormeVD().getImage()
                             .getScaledInstance(42, 44, Image.SCALE_SMOOTH)));
-                    }
+                    //}
                     barcosMatriz [fila + 3][columna].setContenidoCasilla(48);
                     
                     if (tipeUser == 1) {
@@ -481,6 +481,8 @@ public class PanelJugador extends JPanel{
                 this.barcosEnormesH + "\n  Verticales: " +
                 this.barcosEnormesV);
     }
+    
+    
     public void agregarMatriz(){
         
         for (int i = 0; i < 15; i++) {

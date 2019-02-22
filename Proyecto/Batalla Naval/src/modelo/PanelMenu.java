@@ -15,6 +15,7 @@ import javax.swing.JPanel;
  *
  * @author USER
  */
+
 public class PanelMenu extends JPanel{
     public AudioClip sonidoMenu;
     private Image fond;
