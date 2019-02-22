@@ -7,71 +7,78 @@ package modelo;
  */
 public class Persona {
     
-    public int numeroDeIdentidad;
-    public int primerNombre;
-    public int apellidos;
-    public int telefonoDeCasa;
-    public int telefonoMovil;
+    public String numeroDeIdentidad;
+    public String primerNombre;
+    public String primerApellido;
+    public String segundoApellido;
+    public String telefonoDeCasa;
+    public String telefonoMovil;
 
     
     public Persona() {
         
     }
 
-    public Persona(int numeroDeIdentidad, int primerNombre, int apellidos
-            , int telefonoDeCasa, int telefonoMovil) {
+    public Persona(String numeroDeIdentidad, String primerNombre
+            , String primerapellido, String segundoApellido
+            , String telefonoDeCasa, String telefonoMovil) {
         
         this.numeroDeIdentidad = numeroDeIdentidad;
         this.primerNombre = primerNombre;
-        this.apellidos = apellidos;
+        this.primerApellido = primerapellido;
+        this.segundoApellido = segundoApellido;
         this.telefonoDeCasa = telefonoDeCasa;
         this.telefonoMovil = telefonoMovil;
     }
-    
-    
-    
-    public int getNumeroDeIdentidad() {
+
+    public String getNumeroDeIdentidad() {
         return numeroDeIdentidad;
     }
 
-    public int getPrimerNombre() {
+    public String getPrimerNombre() {
         return primerNombre;
     }
 
-    public int getApellidos() {
-        return apellidos;
+    public String getPrimerApellido() {
+        return primerApellido;
     }
 
-    public int getTelefonoDeCasa() {
+    public String getSegundoApellido() {
+        return segundoApellido;
+    }
+
+    public String getTelefonoDeCasa() {
         return telefonoDeCasa;
     }
 
-    public int getTelefonoMovil() {
+    public String getTelefonoMovil() {
         return telefonoMovil;
     }
 
-    public void setNumeroDeIdentidad(int numeroDeIdentidad) {
+    public void setNumeroDeIdentidad(String numeroDeIdentidad) {
         this.numeroDeIdentidad = numeroDeIdentidad;
     }
 
-    public void setPrimerNombre(int primerNombre) {
+    public void setPrimerNombre(String primerNombre) {
         this.primerNombre = primerNombre;
     }
 
-    public void setApellidos(int apellidos) {
-        this.apellidos = apellidos;
+    public void setPrimerApellido(String primerApellido) {
+        this.primerApellido = primerApellido;
     }
 
-    public void setTelefonoDeCasa(int telefonoDeCasa) {
+    public void setSegundoApellido(String segundoApellido) {
+        this.segundoApellido = segundoApellido;
+    }
+
+    public void setTelefonoDeCasa(String telefonoDeCasa) {
         this.telefonoDeCasa = telefonoDeCasa;
     }
 
-    public void setTelefonoMovil(int telefonoMovil) {
+    public void setTelefonoMovil(String telefonoMovil) {
         this.telefonoMovil = telefonoMovil;
     }
-    
-    
-    
-    
+                
+            
     
 }

@@ -14,32 +14,34 @@ import javax.swing.JPanel;
  */
 public class Menu extends JPanel{
 
-    public JButton agregarPrestamo;
-    public JButton verPrestamos;
-    private  Image fond;
+    public JButton agregarPrestamo = new JButton();
+    public JButton verPrestamos = new JButton();
+    
     public Menu() {
         
         this.setBounds(0, 0, 1200, 600);
         this.setLayout(null);        
-        PreInit();
-        initComponent();
+        this.setBackground(Color.BLACK);
+        ubicarBotones();
     }
     
-    private void PreInit() {
+    
+    public void ubicarBotones(){
         
-        fond = new ImageIcon("Fondo4.jpg").getImage();
+        this.agregarPrestamo.setBounds(480, 200, 250, 50);
+        this.agregarPrestamo.setOpaque(true);
+        this.agregarPrestamo.setContentAreaFilled(false);
+        this.agregarPrestamo.setText("Realizar Un Nuevo Prestamo(s)");
+        this.agregarPrestamo.setForeground(Color.WHITE);
+        this.verPrestamos.setBounds(480, 300, 250, 50);
+        this.verPrestamos.setOpaque(true);
+        this.verPrestamos.setContentAreaFilled(false);
+        this.verPrestamos.setText("Ver Los Prestamos Realizados");
+        this.verPrestamos.setForeground(Color.WHITE);
+        this.add(this.agregarPrestamo);
+        this.add(this.verPrestamos);
+        
     }
-
-    private void initComponent() {
-
-    }
-
-    public void paintBorder (Graphics g){
-        super.paintComponent(g);
-        g.drawImage(fond,0,0, this.getWidth(), this.getHeight(), this);
-    }
-    
-    
     
     
 }
