@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -75,22 +76,24 @@ public class Controlador1{
         ActionListener botonAgregarPrestamo = new ActionListener() {                                   
             
             @Override
-            public void actionPerformed(ActionEvent ae) {
+            public void actionPerformed(ActionEvent ae) {                
                 
                 if (primeraVez == true) {
                     
                     solicitarMonto();
-                    try {
+                    
+                    primeraVez = false;
+                    
+                }
+                
+                try {
                         nuevosDatos.pedirDatos(montoActualDisponible);
                     } catch (ParseException ex) {
                         Logger.getLogger(Controlador1.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    primeraVez = false;
-                    
-                }
-               nuevoMenu.setVisible(false);
-               nuevaCaptacion.setVisible(true);
-               nuevoMiniPanel.volver.setEnabled(true);
+                nuevoMenu.setVisible(false);
+                nuevaCaptacion.setVisible(true);
+                nuevoMiniPanel.volver.setEnabled(true);
                
             }
         };  
@@ -116,9 +119,15 @@ public class Controlador1{
             @Override
             public void actionPerformed(ActionEvent ae) {
                 
-                agregarDatosPersona();
+                if(estaUser(nuevaCaptacion
+                .numeroIdentidad.getText()) == false) {
+                    
+                    agregarDatosPersona();
+                }
                 
-               
+                agregarDatosPrestamos(nuevosDatos.cantidadPres, nuevaCaptacion
+                .numeroIdentidad.getText());
+                imprimirListaSolicitantes();
             }
         };  
         this.nuevaCaptacion.validar.addActionListener(botonValidar);
@@ -157,10 +166,8 @@ public class Controlador1{
                 .telefonoDeCasa.getText());
         nuevoSolicitante.setTelefonoMovil(this.nuevaCaptacion
                 .telefonoMovil.getText());
-        
-        agregarDatosPrestamos(nuevosDatos.cantidadPres, nuevoSolicitante.numeroDeIdentidad);        
+                
         this.solicitantes.add(nuevoSolicitante);
-        imprimirListaSolicitantes();
         
     }
     
@@ -192,6 +199,12 @@ public class Controlador1{
         imprimirListaPrestamos();
     }
     
+    public void generarFechasPrestamos(){
+        
+        Calendar cal = Calendar.getInstance();
+        //cal.setTime(fechaAutorizacion1);
+        
+    }
     public void imprimirListaPrestamos(){
                
         for (Prestamo a : this.prestamosSolic){
@@ -202,4 +215,21 @@ public class Controlador1{
            
     }
     
+    public boolean  estaUser(String id){
+        
+        boolean flag = false;
+        
+        for (int i = 0; i < this.solicitantes.size(); i++) {
+            
+            if (this.solicitantes.get(i).numeroDeIdentidad.equals(id) == true) {
+                
+                flag = true;
+                break;
+                
+            }
+            
+        }
+        return flag;
+    }
+            
 }
