@@ -95,14 +95,14 @@ public class Prestamo {
 
     @Override
     public String toString() {
-        return "Prestamo{" + "numeroPrestamo=" + numeroPrestamo 
-                + ", valorDelPrestamo=" + valorDelPrestamo + ", cuotas=" 
-                + cuotas + ", fechasDePagoCuotas=" + Arrays.toString(fechasDePagoCuotas)
-                + ", fechaAutorizacionPrestamo=" 
+        return "Prestamo Número: " + numeroPrestamo 
+                + " Valor Del Prestamo: " + valorDelPrestamo + " Cuotas: " 
+                + cuotas + "\nFechas De Pago Cuotas: " + Arrays.toString(fechasDePagoCuotas)
+                + "\nFecha Autorización Prestamo: " 
                 + formatoNuevo1.format(fechaAutorizacionPrestamo) 
-                + ", fechaTentativaDelPrestamo=" 
+                + " Fecha Tentativa Del Prestamo: " 
                 + formatoNuevo1.format(fechaTentativaDelPrestamo)
-                + ", solicitante=" + solicitante + '}';
+                + " Solicitante: " + solicitante + '}';
     }
                             
     

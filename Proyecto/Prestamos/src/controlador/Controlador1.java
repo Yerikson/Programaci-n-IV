@@ -15,8 +15,8 @@ import javax.swing.JPanel;
 import modelo.Persona;
 import modelo.Prestamo;
 import vista.Captacion;
-import vista.Captacion1;
 import vista.DatosPrestamos;
+import vista.HistorialPrestamos;
 import vista.Menu;
 import vista.MontoYFechaActual;
 import vista.VentanaUsuario;
@@ -26,6 +26,7 @@ import vista.VentanaUsuario;
  * @author USER
  */
 public class Controlador1{
+    private int flag = 0;
     private double montoActualDisponible;
     private int numeroPres1 = 0;
     private boolean primeraVez = true;
@@ -33,6 +34,7 @@ public class Controlador1{
     private ArrayList<Prestamo> prestamosSolic = new ArrayList<Prestamo>(); 
     private DatosPrestamos nuevosDatos = new DatosPrestamos();
     private VentanaUsuario nuevaVentana;
+    private HistorialPrestamos nuevoHistorial = new HistorialPrestamos();
     private String mensajeMonto;
     private Menu nuevoMenu = new Menu();
     private MontoYFechaActual nuevoMiniPanel = new MontoYFechaActual();
@@ -66,20 +68,23 @@ public class Controlador1{
         this.agregarPanelAVentana(this.nuevoMenu);
         this.agregarPanelAVentana(this.nuevoMiniPanel);
         this.agregarPanelAVentana(this.nuevaCaptacion);
+        this.agregarPanelAVentana(this.nuevoHistorial);
         this.nuevaCaptacion.setVisible(false);
+        this.nuevoHistorial.setVisible(false);
         this.eventosBotones();
         this.nuevoMiniPanel.volver.setEnabled(false);
 
     }
     
     public void eventosBotones(){
-        
+                
         //Agregar Prestamo
         ActionListener botonAgregarPrestamo = new ActionListener() {                                   
             
+            
             @Override
             public void actionPerformed(ActionEvent ae) {                
-                
+                flag = 1;
                 if (primeraVez == true) {
                     
                     solicitarMonto();
@@ -91,7 +96,8 @@ public class Controlador1{
                 try {
                         nuevosDatos.pedirDatos(montoActualDisponible);
                     } catch (ParseException ex) {
-                        Logger.getLogger(Controlador1.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(Controlador1.class.getName())
+                                .log(Level.SEVERE, null, ex);
                     }
                 nuevoMenu.setVisible(false);
                 nuevaCaptacion.setVisible(true);
@@ -101,16 +107,40 @@ public class Controlador1{
         };  
         this.nuevoMenu.agregarPrestamo.addActionListener(botonAgregarPrestamo);
         
+        //Mostrar Prestamos
+        ActionListener botonMostrarPrestamo = new ActionListener() {                                   
+            
+            @Override
+            public void actionPerformed(ActionEvent ae) {                
+                flag = 2;
+                nuevoMenu.setVisible(false);
+                nuevoHistorial.setVisible(true);
+                nuevoMiniPanel.volver.setEnabled(true);
+                nuevoHistorial.ubicarElementos2(prestamosSolic);
+            }
+        };  
+        this.nuevoMenu.verPrestamos.addActionListener(botonMostrarPrestamo);
         //Volver
         ActionListener botonVolver = new ActionListener() {                                   
-            
             @Override
             public void actionPerformed(ActionEvent ae) {
                
-               nuevaCaptacion.limpiarCampos();
-               nuevaCaptacion.setVisible(false);
-               nuevoMenu.setVisible(true);
-               nuevoMiniPanel.volver.setEnabled(false);
+                if (flag == 1) {
+                    
+                    
+                    nuevaCaptacion.limpiarCampos();
+                    nuevaCaptacion.setVisible(false);
+                    nuevoMenu.setVisible(true);
+                    nuevoMiniPanel.volver.setEnabled(false);                    
+                }
+                
+                if (flag == 2) {
+                 
+                    nuevoHistorial.setVisible(false);
+                    nuevoMenu.setVisible(true);
+                    nuevoMiniPanel.volver.setEnabled(false);   
+                }
+
             }
         };  
         this.nuevoMiniPanel.volver.addActionListener(botonVolver);
