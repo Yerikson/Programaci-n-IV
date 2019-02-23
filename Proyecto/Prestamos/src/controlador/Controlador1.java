@@ -60,7 +60,7 @@ public class Controlador1{
             @Override
             public void actionPerformed(ActionEvent ae) {
                
-                nuevoMenu.setVisible(false);
+               nuevoMenu.setVisible(false);
                nuevaCaptacion.setVisible(true);
                nuevoMiniPanel.volver.setEnabled(true);
                 
