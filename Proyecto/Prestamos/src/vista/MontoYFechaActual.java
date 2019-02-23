@@ -15,8 +15,8 @@ import javax.swing.JPanel;
  */
 public class MontoYFechaActual extends JPanel{
 
-    private int montoActual;
-    private JLabel monto = new JLabel();
+    public int montoActual;
+    public JLabel monto = new JLabel();
     public JButton volver = new JButton();
     
     public MontoYFechaActual() {
@@ -38,9 +38,7 @@ public class MontoYFechaActual extends JPanel{
     
     public void ubicarElementos(){
        
-        this.montoActual = 1111111111;
         this.monto.setBounds(100, 10, 350, 50);        
-        this.monto.setText("Monto Total Disponible Para Prestamos: " + this.montoActual);
         this.monto.setForeground(Color.yellow);
         this.add(monto);
         
