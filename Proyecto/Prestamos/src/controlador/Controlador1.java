@@ -4,8 +4,10 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -195,16 +197,55 @@ public class Controlador1{
             nuevoPrestamo.setSolicitante(id);
             this.prestamosSolic.add(nuevoPrestamo);
         }   
-        
+        generarFechasPrestamos();
         imprimirListaPrestamos();
     }
     
     public void generarFechasPrestamos(){
         
         Calendar cal = Calendar.getInstance();
-        //cal.setTime(fechaAutorizacion1);
-        
+        SimpleDateFormat formatoNuevo2 = new SimpleDateFormat("dd/MM/yyyy");
+        for (int i = 0; i < this.prestamosSolic.size(); i++) {
+            
+            // Fecha Tentativa
+            cal.setTime(this.prestamosSolic.get(i).fechaAutorizacionPrestamo);
+            
+            if (this.prestamosSolic.get(i).valorDelPrestamo < 1000000) {
+                
+                cal.add(Calendar.DAY_OF_YEAR, 7);
+                
+            }else{
+                
+                cal.add(Calendar.DAY_OF_YEAR, 10);
+            }
+            this.prestamosSolic.get(i).fechaTentativaDelPrestamo = cal.getTime();
+            
+            // Fechas Pago Cuotas
+
+            Date [] fechasCuotasAux = new Date [6];
+            for (int j = 0; j < this.prestamosSolic.get(i).cuotas; j++) {
+                
+                if (j == 0) {
+                    Calendar cal1 = Calendar.getInstance();
+                    cal1.setTime(this.prestamosSolic.get(i)
+                            .fechaTentativaDelPrestamo);
+                    cal1.add(Calendar.DAY_OF_YEAR, 30);
+                    fechasCuotasAux[j] = cal1.getTime();
+                    
+                } else {
+                    Calendar cal2 = Calendar.getInstance();
+                    cal2.setTime(fechasCuotasAux[j - 1]);
+                    cal2.add(Calendar.DAY_OF_YEAR, 30);
+                    fechasCuotasAux[j] = cal2.getTime();
+                   
+                }
+
+            }
+            this.prestamosSolic.get(i).setFechasDePagoCuotas(fechasCuotasAux);
+            
+        }
     }
+    
     public void imprimirListaPrestamos(){
                
         for (Prestamo a : this.prestamosSolic){

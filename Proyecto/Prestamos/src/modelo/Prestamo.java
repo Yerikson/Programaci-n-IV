@@ -2,6 +2,7 @@
 package modelo;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -13,7 +14,7 @@ public class Prestamo {
     public int numeroPrestamo;
     public double valorDelPrestamo;
     public int cuotas;
-    public Date [] fechasDePagoCuotas;
+    public Date [] fechasDePagoCuotas = new Date [6];
     public Date fechaAutorizacionPrestamo;
     public Date fechaTentativaDelPrestamo;
     public String  solicitante;
@@ -96,10 +97,11 @@ public class Prestamo {
     public String toString() {
         return "Prestamo{" + "numeroPrestamo=" + numeroPrestamo 
                 + ", valorDelPrestamo=" + valorDelPrestamo + ", cuotas=" 
-                + cuotas + ", fechasDePagoCuotas=" + fechasDePagoCuotas 
+                + cuotas + ", fechasDePagoCuotas=" + Arrays.toString(fechasDePagoCuotas)
                 + ", fechaAutorizacionPrestamo=" 
                 + formatoNuevo1.format(fechaAutorizacionPrestamo) 
-                + ", fechaTentativaDelPrestamo=" + fechaTentativaDelPrestamo 
+                + ", fechaTentativaDelPrestamo=" 
+                + formatoNuevo1.format(fechaTentativaDelPrestamo)
                 + ", solicitante=" + solicitante + '}';
     }
                             
