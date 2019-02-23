@@ -78,6 +78,15 @@ public class Persona {
     public void setTelefonoMovil(String telefonoMovil) {
         this.telefonoMovil = telefonoMovil;
     }
+
+    @Override
+    public String toString() {
+        return "Persona{" + "numeroDeIdentidad=" + numeroDeIdentidad 
+                + ", primerNombre=" + primerNombre + ", primerApellido=" 
+                + primerApellido + ", segundoApellido=" + segundoApellido 
+                + ", telefonoDeCasa=" + telefonoDeCasa + ", telefonoMovil=" 
+                + telefonoMovil + '}';
+    }
                 
             
     

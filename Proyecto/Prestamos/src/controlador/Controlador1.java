@@ -3,8 +3,10 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import modelo.Persona;
 import vista.Captacion;
 import vista.Captacion1;
 import vista.Menu;
@@ -16,14 +18,16 @@ import vista.VentanaUsuario;
  * @author USER
  */
 public class Controlador1{
-    private int montoActualDisponible;
+    private double montoActualDisponible;
     private boolean primeraVez = true;
+    private ArrayList<Persona> solicitantes = new ArrayList<Persona>(); 
+    
     private VentanaUsuario nuevaVentana;
     private String mensajeMonto;
     private Menu nuevoMenu = new Menu();
     private MontoYFechaActual nuevoMiniPanel = new MontoYFechaActual();
     private Captacion nuevaCaptacion = new Captacion();
-    private Captacion1 nuevaCaptacion1 = new Captacion1();
+    //private Captacion1 nuevaCaptacion1 = new Captacion1();
     
     public Controlador1(VentanaUsuario nuevaVentana) {
         
@@ -60,6 +64,7 @@ public class Controlador1{
     
     public void eventosBotones(){
         
+        //Agregar Prestamo
         ActionListener botonAgregarPrestamo = new ActionListener() {                                   
             
             @Override
@@ -79,11 +84,13 @@ public class Controlador1{
         };  
         this.nuevoMenu.agregarPrestamo.addActionListener(botonAgregarPrestamo);
         
+        //Volver
         ActionListener botonVolver = new ActionListener() {                                   
             
             @Override
             public void actionPerformed(ActionEvent ae) {
-                
+               
+               nuevaCaptacion.limpiarCampos();
                nuevaCaptacion.setVisible(false);
                nuevoMenu.setVisible(true);
                nuevoMiniPanel.volver.setEnabled(false);
@@ -91,11 +98,22 @@ public class Controlador1{
         };  
         this.nuevoMiniPanel.volver.addActionListener(botonVolver);
        
+        //Validar
+        ActionListener botonValidar = new ActionListener() {                                   
+            
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                
+                agregarDatosPersona();
+               
+            }
+        };  
+        this.nuevaCaptacion.validar.addActionListener(botonValidar);
     }
     
     public void solicitarMonto(){
         
-        while((this.montoActualDisponible = Integer.parseInt(JOptionPane
+        while((this.montoActualDisponible = Double.parseDouble(JOptionPane
                 .showInputDialog("Ingrese El Monto Total Disponible "
                         + "Para Prestar: "))) <= 0){
             
@@ -105,9 +123,44 @@ public class Controlador1{
         }
         
         this.nuevoMiniPanel.setMontoActual(montoActualDisponible);
-        System.out.println(this.nuevoMiniPanel.montoActual);
         this.nuevoMiniPanel.monto.setVisible(true);
         this.nuevoMiniPanel.monto.setText(this.mensajeMonto + this.montoActualDisponible);
 
+    }
+    
+    public void agregarDatosPersona(){
+        
+        Persona nuevoSolicitante = new Persona();
+        
+        nuevoSolicitante.setNumeroDeIdentidad(this.nuevaCaptacion
+                .numeroIdentidad.getText());
+        nuevoSolicitante.setPrimerNombre(this.nuevaCaptacion
+                .primerNombre.getText());
+        nuevoSolicitante.setPrimerApellido(this.nuevaCaptacion
+                .primerApellido.getText());
+        nuevoSolicitante.setSegundoApellido(this.nuevaCaptacion
+                .segundoApellido.getText());
+        nuevoSolicitante.setTelefonoDeCasa(this.nuevaCaptacion
+                .telefonoDeCasa.getText());
+        nuevoSolicitante.setTelefonoMovil(this.nuevaCaptacion
+                .telefonoMovil.getText());
+        
+        this.solicitantes.add(nuevoSolicitante);
+        imprimirListaSolicitantes();
+        
+    }
+    
+    public void imprimirListaSolicitantes(){
+               
+        
+        for (Persona B : this.solicitantes){
+            
+            System.out.println(B.toString());
+            
+        }
+        
+        
+        
+        
     }
 }

@@ -10,11 +10,12 @@ import java.util.Date;
 public class Prestamo {
     
     public int numeroPrestamo;
-    public int valorDelPrestamo;
+    public double valorDelPrestamo;
+    public int cuotas;
     public Date [] fechasDePagoCuotas;
     public Date fechaAutorizacionPrestamo;
     public Date fechaTentativaDelPrestamo;
-    public int  solicitante;
+    public String  solicitante;
 
     public Prestamo() {
         
@@ -22,7 +23,7 @@ public class Prestamo {
 
     public Prestamo(int numeroPrestamo, int valorDelPrestamo,
             Date[] fechasDePagoCuotas, Date fechaAutorizacionPrestamo,
-            Date fechaTentativaDelPrestamo, int solicitante) {
+            Date fechaTentativaDelPrestamo, String solicitante) {
         
         this.numeroPrestamo = numeroPrestamo;
         this.valorDelPrestamo = valorDelPrestamo;
@@ -36,7 +37,7 @@ public class Prestamo {
         return numeroPrestamo;
     }
 
-    public int getValorDelPrestamo() {
+    public double getValorDelPrestamo() {
         return valorDelPrestamo;
     }
 
@@ -52,7 +53,7 @@ public class Prestamo {
         return fechaTentativaDelPrestamo;
     }
 
-    public int getSolicitante() {
+    public String getSolicitante() {
         return solicitante;
     }
 
@@ -60,7 +61,7 @@ public class Prestamo {
         this.numeroPrestamo = numeroPrestamo;
     }
 
-    public void setValorDelPrestamo(int valorDelPrestamo) {
+    public void setValorDelPrestamo(double valorDelPrestamo) {
         this.valorDelPrestamo = valorDelPrestamo;
     }
 
@@ -77,15 +78,9 @@ public class Prestamo {
         this.fechaTentativaDelPrestamo = fechaTentativaDelPrestamo;
     }
 
-    public void setSolicitante(int solicitante) {
+    public void setSolicitante(String solicitante) {
         this.solicitante = solicitante;
     }
-    
-    
-    
-    
-    
-    
-    
+                            
     
 }

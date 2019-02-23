@@ -2,9 +2,6 @@
 package vista;
 
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,7 +12,7 @@ import javax.swing.JPanel;
  */
 public class MontoYFechaActual extends JPanel{
 
-    public int montoActual;
+    public double montoActual;
     public JLabel monto = new JLabel();
     public JButton volver = new JButton();
     
@@ -27,11 +24,11 @@ public class MontoYFechaActual extends JPanel{
         ubicarElementos();
     }
 
-    public int getMontoActual() {
+    public double getMontoActual() {
         return montoActual;
     }
 
-    public void setMontoActual(int montoActual) {
+    public void setMontoActual(double montoActual) {
         this.montoActual = montoActual;
     }
     

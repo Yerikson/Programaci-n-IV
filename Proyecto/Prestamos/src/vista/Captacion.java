@@ -2,6 +2,7 @@
 package vista;
 
 import java.awt.Color;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -12,13 +13,16 @@ import javax.swing.JTextField;
  */
 public class Captacion extends JPanel{
     
-    JTextField numeroIdentidad = new JTextField();
-    JTextField primerNombre = new JTextField();
-    JTextField primerApellido = new JTextField();
-    JTextField segundoApellido = new JTextField();
-    JTextField telefonoDeCasa = new JTextField();
-    JTextField telefonoMovil = new JTextField();
+    public JTextField numeroIdentidad = new JTextField();
+    public JTextField primerNombre = new JTextField();
+    public JTextField primerApellido = new JTextField();
+    public JTextField segundoApellido = new JTextField();
+    public JTextField telefonoDeCasa = new JTextField();
+    public JTextField telefonoMovil = new JTextField();
     
+    public JButton validar = new JButton("Validar");
+    
+    JLabel labelMensaje = new JLabel("Por Favor Llene Los Siguientes Campos: ");
     JLabel label0 = new JLabel("Número De Identidad: ");
     JLabel label1 = new JLabel("Primer Nombre: ");
     JLabel label2 = new JLabel("Primer Apellido: ");
@@ -34,7 +38,14 @@ public class Captacion extends JPanel{
         ubicarElementos1();
     }
     
+    
+    
     public void ubicarElementos1(){
+        
+        //Mensaje
+        this.labelMensaje.setBounds(200, 50, 250, 25);
+        this.labelMensaje.setForeground(Color.WHITE);
+        this.add(this.labelMensaje);
         
         //Número Identidad
         this.label0.setBounds(450, 100, 150, 25);
@@ -75,11 +86,27 @@ public class Captacion extends JPanel{
         this.label5.setBounds(450, 250, 150, 25);
         this.label5.setForeground(Color.WHITE);
         this.add(this.label5);
-        this.telefonoMovil.setBounds(605, 250, 100, 25);        
+        this.telefonoMovil.setBounds(605, 250, 100, 25);  
+        //this.telefonoMovil.setText("");
         this.add(this.telefonoMovil);
         
+        //Validar
+        this.validar.setBounds(800, 500, 100, 25);
+        this.validar.setOpaque(true);
+        this.validar.setContentAreaFilled(false);
+        this.validar.setForeground(Color.yellow);
+        this.add(validar);
         
+    }
+    
+    public void limpiarCampos(){
         
+        this.numeroIdentidad.setText("");
+        this.primerNombre.setText("");
+        this.primerApellido.setText("");        
+        this.segundoApellido.setText("");
+        this.telefonoDeCasa.setText("");
+        this.telefonoMovil.setText("");
     }
     
     
