@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -16,6 +17,7 @@ public class MontoYFechaActual extends JPanel{
 
     private int montoActual;
     private JLabel monto = new JLabel();
+    public JButton volver = new JButton();
     
     public MontoYFechaActual() {
         
@@ -35,11 +37,19 @@ public class MontoYFechaActual extends JPanel{
     
     
     public void ubicarElementos(){
+       
         this.montoActual = 1111111111;
-        this.monto.setBounds(10, 10, 350, 50);        
+        this.monto.setBounds(100, 10, 350, 50);        
         this.monto.setText("Monto Total Disponible Para Prestamos: " + this.montoActual);
         this.monto.setForeground(Color.yellow);
         this.add(monto);
+        
+        this.volver.setBounds(1000, 10, 100, 50);
+        this.volver.setOpaque(true);
+        this.volver.setContentAreaFilled(false);
+        this.volver.setText("Atras");
+        this.volver.setForeground(Color.yellow);
+        this.add(volver);
         
     }
     

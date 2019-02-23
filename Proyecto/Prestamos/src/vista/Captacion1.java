@@ -12,7 +12,8 @@ public class Captacion1 extends javax.swing.JPanel {
      */
     public Captacion1() {
         initComponents();
-        this.setLayout(null);
+        //this.setLayout(null);
+        //this.setVisible(true);
     }
 
     /**
@@ -37,7 +38,7 @@ public class Captacion1 extends javax.swing.JPanel {
         telefonoFijo = new javax.swing.JTextField();
         telefonoMovil = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        botonValidar = new javax.swing.JButton();
 
         jLabel1.setText("Numero Identidad :");
 
@@ -77,7 +78,7 @@ public class Captacion1 extends javax.swing.JPanel {
 
         jLabel7.setText("Por Favor Ingrese Los Siguientes Datos");
 
-        jButton1.setText("Validar");
+        botonValidar.setText("Validar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -116,7 +117,7 @@ public class Captacion1 extends javax.swing.JPanel {
                         .addComponent(jLabel7))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(286, 286, 286)
-                        .addComponent(jButton1)))
+                        .addComponent(botonValidar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -125,9 +126,9 @@ public class Captacion1 extends javax.swing.JPanel {
                 .addGap(15, 15, 15)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(numeroIdentidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(numeroIdentidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -149,7 +150,7 @@ public class Captacion1 extends javax.swing.JPanel {
                     .addComponent(jLabel6)
                     .addComponent(telefonoMovil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(58, 58, 58)
-                .addComponent(jButton1)
+                .addComponent(botonValidar)
                 .addContainerGap(114, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -172,7 +173,7 @@ public class Captacion1 extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton botonValidar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

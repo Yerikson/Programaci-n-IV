@@ -30,14 +30,16 @@ public class Captacion extends JPanel{
         
         this.setBounds(0, 0, 1200, 600);
         this.setLayout(null);        
-        this.setBackground(Color.BLACK);        
+        //this.setBackground(Color.BLACK);        
+        ubicarElementos1();
     }
     
     public void ubicarElementos1(){
         
-        this.label0.setBounds(0, 10, 50, 50);
-        this.label0.setForeground(Color.WHITE);
+        this.label0.setBounds(10, 10, 150, 50);
+        //this.label0.setForeground(Color.WHITE);
         this.add(this.label0);
+        this.numeroIdentidad.setBounds(155, 10, 100, 50);
         this.add(this.numeroIdentidad);
         
         
