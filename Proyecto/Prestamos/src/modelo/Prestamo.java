@@ -27,7 +27,7 @@ public class Prestamo {
         
         this.numeroPrestamo = numeroPrestamo;
         this.valorDelPrestamo = valorDelPrestamo;
-        //this.fechasDePagoCuotas = fechasDePagoCuotas;
+        this.fechasDePagoCuotas = fechasDePagoCuotas;
         this.fechaAutorizacionPrestamo = fechaAutorizacionPrestamo;
         this.fechaTentativaDelPrestamo = fechaTentativaDelPrestamo;
         this.solicitante = solicitante;

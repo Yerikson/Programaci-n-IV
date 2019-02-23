@@ -3,12 +3,17 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import modelo.Persona;
+import modelo.Prestamo;
 import vista.Captacion;
 import vista.Captacion1;
+import vista.DatosPrestamos;
 import vista.Menu;
 import vista.MontoYFechaActual;
 import vista.VentanaUsuario;
@@ -21,7 +26,8 @@ public class Controlador1{
     private double montoActualDisponible;
     private boolean primeraVez = true;
     private ArrayList<Persona> solicitantes = new ArrayList<Persona>(); 
-    
+    private ArrayList<Prestamo> prestamosSolic = new ArrayList<Prestamo>(); 
+    private DatosPrestamos nuevosDatos = new DatosPrestamos();
     private VentanaUsuario nuevaVentana;
     private String mensajeMonto;
     private Menu nuevoMenu = new Menu();
@@ -73,6 +79,11 @@ public class Controlador1{
                 if (primeraVez == true) {
                     
                     solicitarMonto();
+                    try {
+                        nuevosDatos.pedirDatos(montoActualDisponible);
+                    } catch (ParseException ex) {
+                        Logger.getLogger(Controlador1.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     primeraVez = false;
                     
                 }
