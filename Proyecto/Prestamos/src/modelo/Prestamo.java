@@ -1,6 +1,7 @@
 
 package modelo;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -16,9 +17,18 @@ public class Prestamo {
     public Date fechaAutorizacionPrestamo;
     public Date fechaTentativaDelPrestamo;
     public String  solicitante;
-
+    public SimpleDateFormat formatoNuevo1 = new SimpleDateFormat("dd/MM/yyyy");
+    
     public Prestamo() {
         
+    }
+
+    public int getCuotas() {
+        return cuotas;
+    }
+
+    public void setCuotas(int cuotas) {
+        this.cuotas = cuotas;
     }
 
     public Prestamo(int numeroPrestamo, int valorDelPrestamo,
@@ -80,6 +90,17 @@ public class Prestamo {
 
     public void setSolicitante(String solicitante) {
         this.solicitante = solicitante;
+    }
+
+    @Override
+    public String toString() {
+        return "Prestamo{" + "numeroPrestamo=" + numeroPrestamo 
+                + ", valorDelPrestamo=" + valorDelPrestamo + ", cuotas=" 
+                + cuotas + ", fechasDePagoCuotas=" + fechasDePagoCuotas 
+                + ", fechaAutorizacionPrestamo=" 
+                + formatoNuevo1.format(fechaAutorizacionPrestamo) 
+                + ", fechaTentativaDelPrestamo=" + fechaTentativaDelPrestamo 
+                + ", solicitante=" + solicitante + '}';
     }
                             
     

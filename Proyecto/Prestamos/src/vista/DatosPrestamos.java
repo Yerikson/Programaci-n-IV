@@ -13,15 +13,42 @@ import javax.swing.JOptionPane;
  */
 public class DatosPrestamos {
     
+    public int cuotas1;
     public double monto;
     public int cantidadPres;
     public int [] cuotas = new int [6];
     public double [] valorPres = new double [6];
     public Date [] fechasAutorizacion = new Date [6];
-    
+    public int cantCuotas;
     public DatosPrestamos(){
                         
     }
+
+    public int getCantidadPres() {
+        return cantidadPres;
+    }
+
+    public int[] getCuotas() {
+        return cuotas;
+    }
+
+    public double[] getValorPres() {
+        return valorPres;
+    }
+
+    public Date[] getFechasAutorizacion() {
+        return fechasAutorizacion;
+    }
+
+    public int getCantCuotas() {
+        return cantCuotas;
+    }
+
+    public int getCuotas1() {
+        return cuotas1;
+    }
+    
+    
     
     public void pedirDatos(double monto1) throws ParseException{
         
@@ -49,7 +76,7 @@ public class DatosPrestamos {
             SimpleDateFormat formatoNuevo = new SimpleDateFormat("dd/MM/yyyy");
             Date fechaAutorizacion1;
             double valorPres1;
-            int cuotas1;
+            
             while((fechaAutorizacion1 = formatoNuevo.parse(JOptionPane
                     .showInputDialog("Por Favor Ingrese La Fecha De Autorización"
                             + " En Formato dd/MM/YYYY Que Desea Para Su Prestamo"

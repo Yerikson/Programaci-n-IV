@@ -24,6 +24,7 @@ import vista.VentanaUsuario;
  */
 public class Controlador1{
     private double montoActualDisponible;
+    private int numeroPres1 = 0;
     private boolean primeraVez = true;
     private ArrayList<Persona> solicitantes = new ArrayList<Persona>(); 
     private ArrayList<Prestamo> prestamosSolic = new ArrayList<Prestamo>(); 
@@ -33,7 +34,7 @@ public class Controlador1{
     private Menu nuevoMenu = new Menu();
     private MontoYFechaActual nuevoMiniPanel = new MontoYFechaActual();
     private Captacion nuevaCaptacion = new Captacion();
-    //private Captacion1 nuevaCaptacion1 = new Captacion1();
+   
     
     public Controlador1(VentanaUsuario nuevaVentana) {
         
@@ -90,7 +91,7 @@ public class Controlador1{
                nuevoMenu.setVisible(false);
                nuevaCaptacion.setVisible(true);
                nuevoMiniPanel.volver.setEnabled(true);
-                
+               
             }
         };  
         this.nuevoMenu.agregarPrestamo.addActionListener(botonAgregarPrestamo);
@@ -116,6 +117,7 @@ public class Controlador1{
             public void actionPerformed(ActionEvent ae) {
                 
                 agregarDatosPersona();
+                
                
             }
         };  
@@ -156,6 +158,7 @@ public class Controlador1{
         nuevoSolicitante.setTelefonoMovil(this.nuevaCaptacion
                 .telefonoMovil.getText());
         
+        agregarDatosPrestamos(nuevosDatos.cantidadPres, nuevoSolicitante.numeroDeIdentidad);        
         this.solicitantes.add(nuevoSolicitante);
         imprimirListaSolicitantes();
         
@@ -169,9 +172,34 @@ public class Controlador1{
             System.out.println(B.toString());
             
         }
-        
-        
-        
-        
+           
     }
+    
+    public void agregarDatosPrestamos(int totalPres, String id){
+
+        for (int i = 0; i < totalPres; i++) {
+            this.numeroPres1 += 1;
+            Prestamo nuevoPrestamo = new Prestamo();
+            nuevoPrestamo.setCuotas(this.nuevosDatos.getCuotas1());
+            nuevoPrestamo.setFechaAutorizacionPrestamo(this.nuevosDatos
+                    .fechasAutorizacion[i]);
+            nuevoPrestamo.setNumeroPrestamo(numeroPres1);
+            nuevoPrestamo.setValorDelPrestamo(this.nuevosDatos.valorPres[i]);   
+            nuevoPrestamo.setSolicitante(id);
+            this.prestamosSolic.add(nuevoPrestamo);
+        }   
+        
+        imprimirListaPrestamos();
+    }
+    
+    public void imprimirListaPrestamos(){
+               
+        for (Prestamo a : this.prestamosSolic){
+            
+            System.out.println(a.toString());
+            
+        }
+           
+    }
+    
 }
