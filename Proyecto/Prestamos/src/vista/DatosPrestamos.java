@@ -25,12 +25,11 @@ public class DatosPrestamos {
         
     }
     
-    public void pedirDatos(double monto1){
+    public void pedirDatos(double monto1) throws ParseException{
         
         this.monto = monto1;
-        
-        
-        
+        datosPrestamos();
+ 
     }
     
     public void datosPrestamos() throws ParseException{
@@ -92,13 +91,14 @@ public class DatosPrestamos {
             while((cuotas1 = Integer.parseInt(JOptionPane
                     .showInputDialog("Ingrese El Número De Cuotas Mensuales Al "
                             + "Que Desea Remunerar El Prestamo: "))) > 6){
-                
             
                 JOptionPane.showMessageDialog(null, "El Número Máximo De Cuotas"
                         + " Aceptado Son 6; Por Favor Ingrese Nuevamente Un "
                         + "Valor Que No Sobrepase El Límite De Cuotas");
             
             }
+            
+            this.cuotas [i] = cuotas1;
 
             
         }
